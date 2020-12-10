@@ -17,7 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');
-            $table->integer('category_id')->unsigned();
+            $table->integer('post_category_id')->unsigned();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -9,6 +9,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
+        'post_category_id',
+        'status',
     ];
 
     public function category(){
@@ -16,7 +18,6 @@ class Post extends Model
     }
 
     public function tags(){
-//        return $this->belongsToMany(PostTag::class,'CreateTagPostTable');
         return $this->belongsToMany(PostTag::class);
     }
 }

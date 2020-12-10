@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
 <div id="app">
@@ -26,13 +27,24 @@
     <div class="container-fluid pt-3">
         <div class="row">
             @include('admin.sidenavbar')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card border-0">
+                            <main role="main" class="col-md-9 col-lg-10 pt-3 px-4">
+                                @yield('content')
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <main role="main" class="col-md-9 col-lg-10 pt-3 px-4">
-                @yield('content')
-            </main>
 
         </div>
     </div>
 </div>
+
+@yield('footer')
+@yield('scrpits')
 </body>
 </html>
