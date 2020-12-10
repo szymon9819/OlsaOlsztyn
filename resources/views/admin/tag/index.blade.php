@@ -8,11 +8,11 @@
         </div>
     @endif
     <div class="card-header">
-        <h3><strong>Kategorie</strong></h3>
+        <h3><strong>Tagi</strong></h3>
     </div>
     <div class="card-body">
-        <a href="{{ route('admin.categories.create') }}" class="btn btn-success btn mb-3" title="nowa kategoria">
-            <i class="fa fa-plus" aria-hidden="true"></i> Dodaj nową kategorię
+        <a href="{{ route('admin.tags.create') }}" class="btn btn-success btn mb-3" title="nowy tag">
+            <i class="fa fa-plus" aria-hidden="true"></i> Dodaj nowy tag
         </a>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -24,17 +24,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($categories as $category)
+                @foreach ($tags as $tag)
                     <tr>
-                        <td class="col-md" >{{$category->name}}</td>
+                        <td class="col-md" >{{$tag->name}}</td>
 
                         <td class="col-md-1">
-                            <a href="{{ route('admin.categories.edit',$category->id) }}" class="btn btn-success btn "
-                               title="nowa kategoria">
+                            <a href="{{ route('admin.tags.edit',$tag->id) }}" class="btn btn-success btn "
+                               title="nowy tag">
                                 Edytuj
                             </a></td>
                         <td class="col-md-1">
-                            <form method="POST" action="{{ route('admin.categories.destroy', $category->id) }}"
+                            <form method="POST" action="{{ route('admin.tags.destroy', $tag->id) }}"
                                   accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}
                                 @csrf

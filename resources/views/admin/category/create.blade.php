@@ -2,15 +2,15 @@
 
 @section('content')
 
-    <div class="card-header">Dodaj nowy post</div>
+    <div class="card-header">Dodaj nową kategorię</div>
 
     <div class="card-body">
 
-        <form method="POST" action="{{ route('admin.posts.store') }}" accept-charset="UTF-8" class="form-horizontal"
+        <form method="POST" action="{{ route('admin.categories.store') }}" accept-charset="UTF-8" class="form-horizontal"
               enctype="multipart/form-data">
             @csrf
 
-            @include ('admin.post.form')
+            @include ('admin.category.form')
 
         </form>
     </div>

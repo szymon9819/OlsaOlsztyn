@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PostCategory;
+use App\Models\PostTag;
 use Illuminate\Http\Request;
 
-class PostCategoryController extends Controller
+class PostTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
-        $categoriesPerPage= 15;
-        $categories=PostCategory::paginate($categoriesPerPage);
+        $tagsPerPage= 15;
+        $tags=PostTag::paginate($tagsPerPage);
 
-        return view('admin.category.index',compact('categories'));
+        return view('admin.tag.index',compact('tags'));
     }
 
     /**
@@ -28,7 +28,7 @@ class PostCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.tag.create');
     }
 
     /**
@@ -39,9 +39,9 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        PostCategory::create($request->all());
+        PostTag::create($request->all());
 
-        return redirect('admin/categories')->with('message', 'Dodano nową kategorię');
+        return redirect('admin/tags')->with('message', 'Dodano nowy tag');
     }
 
     /**
@@ -52,8 +52,8 @@ class PostCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category=PostCategory::findOrFail($id);
-        return view('admin.category.edit',compact('category'));
+        $tag=PostTag::findOrFail($id);
+        return view('admin.tag.edit',compact('tag'));
     }
 
     /**
@@ -65,9 +65,9 @@ class PostCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category=PostCategory::findOrFail($id);
-        $category->update($request->all());
-        return redirect('admin/categories')->with('message', 'Edytowano Kategorię');
+        $tag=PostTag::findOrFail($id);
+        $tag->update($request->all());
+        return redirect('admin/tags')->with('message', 'Edytowano tag');
     }
 
     /**
@@ -78,9 +78,9 @@ class PostCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category=PostCategory::findOrFail($id);
-        $category->delete();
+        $tag=PostTag::findOrFail($id);
+        $tag->delete();
 
-        return redirect('admin/categories')->with('message', 'Usunięto kategorię');
+        return redirect('admin/tags')->with('message', 'Usunięto tag');
     }
 }
