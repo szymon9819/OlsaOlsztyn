@@ -5,11 +5,12 @@
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
+<div id="content" class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
     <label for="content">Treść postu</label>
-    <textarea class="form-control" name="content" id="content" rows="6">{{ isset($post->content) ? $post->content : ''  }} </textarea>
+    <textarea class="form-control" name="content" id="summernote">{!! isset($post->content) ? $post->content : '' !!}</textarea>
     {!! $errors->first('content', '<p class="help-block">:message</p>') !!}
 </div>
+
 
 <div class="form-group ">
     <label for="category_id" class="control-label">Kategoria</label>

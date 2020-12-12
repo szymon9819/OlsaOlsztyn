@@ -6,3 +6,22 @@
     background-color: #333;
 }
 
+/*sidebar*/
+.nav.flex-column li a {
+    color: #ffffff;
+}
+
+.nav.flex-column li a:hover {
+    background: #333;
+    color: #ffffff;
+}
+
+/*summernote*/
+.note-editable {
+    background-color: white;
+    color: #000000;
+}
+
+.panel-heading {
+    background-color: #595959;
+}

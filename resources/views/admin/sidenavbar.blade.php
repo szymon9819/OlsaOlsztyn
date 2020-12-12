@@ -25,6 +25,3 @@
     </div>
 </nav>
 
-@push('css')
-    <link href="{{ asset('css/adminSidebar.css') }}" rel="stylesheet">
-@endpush

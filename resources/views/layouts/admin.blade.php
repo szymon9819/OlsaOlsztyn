@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,18 +20,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
-    @stack('css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
 </head>
 <body>
 <div id="app" class="bg-color height-full">
 
     @include('topnavbar')
 
-
     <div class="container-fluid pt-3">
         <div class="row">
             @auth
-            @include('admin.sidenavbar')
+                @include('admin.sidenavbar')
             @endauth
             <div class="container">
                 <div class="row justify-content-center">
@@ -44,13 +46,19 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
 
 @yield('footer')
-@stack('scrpits')
+
+<script src="{{ asset('js/app.js') }}"></script>
+<!-- include summernote css/js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/summernote.js') }}"></script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePostTagsRequest;
+use App\Http\Requests\Post\StorePostTagsRequest;
 use App\Models\PostTag;
 use Illuminate\Http\Request;
 

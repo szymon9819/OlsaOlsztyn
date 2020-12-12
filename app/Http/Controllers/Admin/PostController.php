@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\Post\StorePostRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
@@ -49,7 +49,8 @@ class PostController extends Controller
         $data=$request->all();
         $data['status']=$request->boolean('status');
         $post=Post::create($data);
-        $post->tags()->attach($data['tags']);
+        if(!empty($data['tags']))
+            $post->tags()->attach($data['tags']);
 
         return redirect('admin/posts')->with('message', 'Dodano Post');
     }

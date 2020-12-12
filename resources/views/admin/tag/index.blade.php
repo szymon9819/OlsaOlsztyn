@@ -15,7 +15,7 @@
             <i class="fa fa-plus" aria-hidden="true"></i> Dodaj nowy tag
         </a>
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm text-white">
                 <thead>
                 <tr>
                     <th>Nazwa</th>

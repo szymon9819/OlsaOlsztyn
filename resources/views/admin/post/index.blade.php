@@ -15,35 +15,35 @@
             <i class="fa fa-plus" aria-hidden="true"></i> Dodaj nowy post
         </a>
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm text-white ">
                 <thead>
-                <tr>
-                    <th>Tytuł</th>
-                    <th>Treść</th>
-                    <th>Kategoria</th>
-                    <th>Status</th>
-                    <th></th>
-                    <th></th>
+                <tr class="d-flex">
+                    <th class="col-2">>Tytuł</th>
+                    <th class="col-4">Treść</th>
+                    <th class="col-2">Kategoria</th>
+                    <th class="col-2">Status</th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($posts as $post)
-                    <tr>
-                        <td>{{$post->title}}</td>
-                        <td>{{$post->content}}</td>
-                        <td>{{$post->content}}</td>
+                    <tr class="bg-dark d-flex">
+                        <td class="col-2">{{$post->title}}</td>
+                        <td class="col-4">{!! Str::limit($post->content, 30, ' (...) ') !!}</td>
+                        <td class="col-2">{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
                         @if ($post->status)
-                            <td>Opublikowany</td>
+                            <td class="col-2">Opublikowany</td>
                         @else
-                            <td>Nieopublikowany</td>
+                            <td class="col-2">Nieopublikowany</td>
                         @endif
 
-                        <td>
+                        <td class="col-1">
                             <a href="{{ route('admin.posts.edit',$post->id) }}" class="btn btn-success btn "
                                title="nowy post">
                                 Edytuj
                             </a></td>
-                        <td>
+                        <td class="col-1">
                             <form method="POST" action="{{ route('admin.posts.destroy', $post->id) }}"
                                   accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}
