@@ -20,6 +20,7 @@
                 <tr>
                     <th>Tytuł</th>
                     <th>Treść</th>
+                    <th>Kategoria</th>
                     <th>Status</th>
                     <th></th>
                     <th></th>
@@ -29,6 +30,7 @@
                 @foreach ($posts as $post)
                     <tr>
                         <td>{{$post->title}}</td>
+                        <td>{{$post->content}}</td>
                         <td>{{$post->content}}</td>
                         @if ($post->status)
                             <td>Opublikowany</td>

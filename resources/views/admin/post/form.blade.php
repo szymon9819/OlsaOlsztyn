@@ -11,18 +11,28 @@
     {!! $errors->first('content', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('category_id') ? 'has-error' : ''}}">
+<div class="form-group ">
     <label for="category_id" class="control-label">Kategoria</label>
     <select name="post_category_id" id="category_id" class="form-control">
         @foreach($categories as $category)
             <option value="{{$category->id}}"
-                    @if(!empty($post) && $category->id == $post->category_id) selected @endif>
+                    @if(!empty($post) && $category->id == $post->post_category_id) selected @endif>
                 {{$category->name}}
             </option>
         @endforeach
     </select>
-    {{--            <input class="form-control" name="category_id" type="number" id="category_id" value="{{ isset($post->category_id) ? $post->category_id : ''}}" >--}}
-    {!! $errors->first('category_id', '<p class="help-block">:message</p>') !!}
+</div>
+
+<div class="form-group">
+    <label for="tag_id" class="control-label">Tagi</label>
+    <select name="tags[]" id="tag_id" class="form-control" multiple>
+        @foreach($tags as $tag)
+            <option value="{{$tag->id}}"
+                    @if(!empty($post) && in_array( $tag->id,array_intersect(array_column($post->tags()->get()->toArray(),'id'), array_column($tags->toArray(),'id')))) selected @endif>
+                {{$tag->name}}
+            </option>
+        @endforeach
+    </select>
 </div>
 
 <div class="form-check">

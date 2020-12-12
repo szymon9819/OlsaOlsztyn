@@ -17,9 +17,14 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');
-            $table->integer('post_category_id')->unsigned();
+            $table->unsignedBigInteger('post_category_id');
             $table->boolean('status')->default(0);
             $table->timestamps();
+        });
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreign('post_category_id')
+                ->references('id')
+                ->on('post_categories');
         });
     }
 

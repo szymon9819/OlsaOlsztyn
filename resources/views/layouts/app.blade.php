@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('css')
+    @stack('css')
 </head>
 <body>
 <div id="app">
@@ -26,12 +26,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <main class="col-md-12 pt-3 px-4">
+            <main class="col-md-12 pt-3 px-4 bg-color">
                 @yield('content')
             </main>
         </div>
     </div>
 </div>
-@yield('scripts')
+@stack('scripts')
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostCategoryRequest;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,7 @@ class PostCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostCategoryRequest $request)
     {
         PostCategory::create($request->all());
 
@@ -63,10 +64,11 @@ class PostCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostCategoryRequest $request, $id)
     {
         $category=PostCategory::findOrFail($id);
         $category->update($request->all());
+
         return redirect('admin/categories')->with('message', 'Edytowano Kategorię');
     }
 

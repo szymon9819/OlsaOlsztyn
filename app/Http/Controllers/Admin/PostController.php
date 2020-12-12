@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostTag;
 
 class PostController extends Controller
 {
@@ -20,7 +23,6 @@ class PostController extends Controller
         $postsPerPage= 9;
         $posts=Post::latest()->paginate($postsPerPage);
 
-
         return view('admin.post.index',compact('posts'));
     }
 
@@ -32,7 +34,8 @@ class PostController extends Controller
     public function create()
     {
         $categories=PostCategory::all();
-        return view('admin.post.create',compact('categories'));
+        $tags=PostTag::all();
+        return view('admin.post.create',compact('categories','tags'));
     }
 
     /**
@@ -41,12 +44,12 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $data=$request->all();
         $data['status']=$request->boolean('status');
-
-        Post::create($data);
+        $post=Post::create($data);
+        $post->tags()->attach($data['tags']);
 
         return redirect('admin/posts')->with('message', 'Dodano Post');
     }
@@ -72,7 +75,9 @@ class PostController extends Controller
     {
         $post= Post::findOrFail($id);
         $categories=PostCategory::all();
-        return view('admin.post.edit',compact('post','categories'));
+        $tags=PostTag::all();
+
+        return view('admin.post.edit',compact('post','categories','tags'));
     }
 
     /**
@@ -82,10 +87,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, $id)
     {
         $post= Post::findOrFail($id);
-        $post->update($request->all());
+        $data=$request->all();
+        $data['status']=$request->boolean('status');
+        $post->update($data);
+        $post->tags()->sync($data['tags']);
 
         return redirect('admin/posts')->with('message', 'Edytowano Post');
     }

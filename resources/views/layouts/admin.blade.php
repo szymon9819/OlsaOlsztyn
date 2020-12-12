@@ -18,20 +18,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('css')
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+
+    @stack('css')
 </head>
 <body>
-<div id="app">
+<div id="app" class="bg-color height-full">
+
     @include('topnavbar')
+
 
     <div class="container-fluid pt-3">
         <div class="row">
+            @auth
             @include('admin.sidenavbar')
+            @endauth
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card border-0">
-                            <main role="main" class="col-md-9 col-lg-10 pt-3 px-4">
+                        <div class="card border-0 bg-dark text-white">
+                            <main role="main" class="pt-3 px-4">
                                 @yield('content')
                             </main>
                         </div>
@@ -45,6 +51,6 @@
 </div>
 
 @yield('footer')
-@yield('scrpits')
+@stack('scrpits')
 </body>
 </html>

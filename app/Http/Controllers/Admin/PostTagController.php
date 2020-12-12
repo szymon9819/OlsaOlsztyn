@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostTagsRequest;
 use App\Models\PostTag;
 use Illuminate\Http\Request;
 
@@ -37,8 +38,12 @@ class PostTagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostTagsRequest $request)
     {
+        $this->validate($request,[
+            'name' => 'required|max:30',
+        ]);
+
         PostTag::create($request->all());
 
         return redirect('admin/tags')->with('message', 'Dodano nowy tag');
@@ -63,8 +68,12 @@ class PostTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostTagsRequest $request, $id)
     {
+        $this->validate($request,[
+            'name' => 'required|max:30',
+        ]);
+
         $tag=PostTag::findOrFail($id);
         $tag->update($request->all());
         return redirect('admin/tags')->with('message', 'Edytowano tag');
