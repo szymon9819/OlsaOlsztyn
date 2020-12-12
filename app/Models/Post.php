@@ -11,6 +11,7 @@ class Post extends Model
         'content',
         'post_category_id',
         'status',
+        'thumbnail',
     ];
 
     public function category(){

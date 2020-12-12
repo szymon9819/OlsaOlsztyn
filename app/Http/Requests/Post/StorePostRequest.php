@@ -26,6 +26,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|max:100',
             'content' => 'required',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 }

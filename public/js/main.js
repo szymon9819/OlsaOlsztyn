@@ -2,3 +2,4 @@
 $(document).ready(function() {
     $('#tag_id').select2();
 });
+

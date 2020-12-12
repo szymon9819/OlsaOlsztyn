@@ -17,33 +17,41 @@
         <div class="table-responsive">
             <table class="table table-striped table-sm text-white ">
                 <thead>
-                <tr class="d-flex">
-                    <th class="col-2">>Tytuł</th>
-                    <th class="col-4">Treść</th>
-                    <th class="col-2">Kategoria</th>
-                    <th class="col-2">Status</th>
-                    <th class="col-1"></th>
-                    <th class="col-1"></th>
+                <tr>
+                    <th>Tytuł</th>
+                    <th>Miniaturka</th>
+                    <th>Treść</th>
+                    <th>Kategoria</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($posts as $post)
-                    <tr class="bg-dark d-flex">
-                        <td class="col-2">{{$post->title}}</td>
-                        <td class="col-4">{!! Str::limit($post->content, 30, ' (...) ') !!}</td>
-                        <td class="col-2">{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
+                    <tr>
+                        <td>{{$post->title}}</td>
+                        <td>
+                            @if(!empty($post->thumbnail))
+                                <img width="75" src="{{asset($post->thumbnail)}}" alt="miniaturka">
+                            @endif
+                        </td>
+                        <td>{!! Str::limit($post->content, 30, ' (...) ') !!}</td>
+                        <td>{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
                         @if ($post->status)
-                            <td class="col-2">Opublikowany</td>
+                            <td>Opublikowany</td>
                         @else
-                            <td class="col-2">Nieopublikowany</td>
+                            <td>Nieopublikowany</td>
                         @endif
 
-                        <td class="col-1">
+                        <td>
                             <a href="{{ route('admin.posts.edit',$post->id) }}" class="btn btn-success btn "
                                title="nowy post">
                                 Edytuj
-                            </a></td>
-                        <td class="col-1">
+                            </a>
+                        </td>
+
+                        <td>
                             <form method="POST" action="{{ route('admin.posts.destroy', $post->id) }}"
                                   accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}
@@ -52,6 +60,7 @@
                                     Usuń
                                 </button>
                             </form>
+                        </td>
                     </tr>
                 @endforeach
 

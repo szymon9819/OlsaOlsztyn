@@ -5,6 +5,12 @@
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
 
+<div class="form-group">
+    <label for="file">Miniaturka</label>
+    <input type="file" name="thumbnail" id="file">
+
+</div>
+
 <div id="content" class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
     <label for="content">Treść postu</label>
     <textarea class="form-control" name="content" id="summernote">{!! isset($post->content) ? $post->content : '' !!}</textarea>
