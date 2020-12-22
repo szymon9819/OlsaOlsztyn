@@ -24,6 +24,8 @@ Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function ()
     Route::get('/','Admin\AdminController@index')->name('dashboard');
 
     Route::resource('posts', Admin\PostController::class);
+    Route::post('/upload-post-image','Admin\PostImageController@store')->name('post.image.store');
+
     Route::resource('categories', Admin\PostCategoryController::class)->except('show');
     Route::resource('tags', Admin\PostTagController::class)->except('show');
 });

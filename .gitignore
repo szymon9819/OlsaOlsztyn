@@ -18,4 +18,5 @@ Homestead.yaml
 Homestead.json
 
 .idea/
-public/thumbnails/
+public/images/postThumbnails/
+public/images/postImages/

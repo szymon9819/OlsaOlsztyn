@@ -36,8 +36,11 @@
                                 <img width="75" src="{{asset($post->thumbnail)}}" alt="miniaturka">
                             @endif
                         </td>
+
                         <td>{!! Str::limit($post->content, 30, ' (...) ') !!}</td>
+
                         <td>{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
+
                         @if ($post->status)
                             <td>Opublikowany</td>
                         @else

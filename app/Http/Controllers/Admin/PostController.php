@@ -11,6 +11,7 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\PostTag;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -47,17 +48,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data = $request->all();
-        $data['status'] = $request->boolean('status');
-
-        $originalImage = $request->file('thumbnail');
-        $thumbnail = Image::make($originalImage);
-        $thumbnailDirectory = 'thumbnails/';
-        $thumbnailName = ($thumbnailDirectory . time() . $originalImage->getClientOriginalName());
-        $thumbnail->resize(150, 150)->save($thumbnailName)->resize(150, 150);
-
-        $data['thumbnail'] = $thumbnailName;
-        $post = Post::create($data);
+        $data = $this->prepareData($request);
+        $post = Post::create($this->prepareData($request));
         if (!empty($data['tags']))
             $post->tags()->attach($data['tags']);
 
@@ -99,10 +91,16 @@ class PostController extends Controller
      */
     public function update(StorePostRequest $request, $id)
     {
+        $data = $this->prepareData($request);
         $post = Post::findOrFail($id);
-        $data = $request->all();
-        $data['status'] = $request->boolean('status');
+//        if (!empty($post->thumbnail) && empty($request->all()['thumbnail'])) {
+        if (!empty($post->thumbnail)) {
+            File::delete($post->thumbnail);
+            $post->thumbnail = '';
+        }
+
         $post->update($data);
+
         if (!empty($data['tags']))
             $post->tags()->sync($data['tags']);
 
@@ -118,8 +116,34 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
+//        $this->deleteImageFromPublicDirectory($post->content);
+        File::delete($post->thumbnail);
         $post->delete();
 
         return redirect('admin/posts')->with('message', 'Usunięto Post');
     }
+
+    private function prepareData(StorePostRequest $request)
+    {
+        $data = $request->all();
+        $data['status'] = $request->boolean('status');
+
+        if ($request->hasFile('thumbnail')) {
+            $originalImage = $request->file('thumbnail');
+            $thumbnail = Image::make($originalImage);
+            $thumbnailDirectory = 'images/postThumbnails/';
+            $thumbnailName = ($thumbnailDirectory . time() . $originalImage->getClientOriginalName());
+            $thumbnail->resize(150, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($thumbnailName);
+            $data['thumbnail'] = $thumbnailName;
+        }
+        return $data;
+    }
+
+    private function deleteImageFromPublicDirectory(string $postContent)
+    {
+
+    }
+
 }

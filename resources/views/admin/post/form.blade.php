@@ -1,6 +1,6 @@
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
     <label for="title">Tytul</label>
-    <input type="text" name="title" class="form-control" id="titile"
+    <input type="text" name="title" class="form-control" id="titile" autofocus
            placeholder="Tytuł postu" value="{{ isset($post->title) ? $post->title : ''}} " >
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
@@ -8,15 +8,18 @@
 <div class="form-group">
     <label for="file">Miniaturka</label>
     <input type="file" name="thumbnail" id="file">
-
 </div>
 
-<div id="content" class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
-    <label for="content">Treść postu</label>
-    <textarea class="form-control" name="content" id="summernote">{!! isset($post->content) ? $post->content : '' !!}</textarea>
+<div class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
+    <label for="content" class="control-label">{{ 'Treść postu' }}</label>
+    <div id="editor"  data-img-url="{{route('admin.post.image.store')}}" >
+        {!! isset($post->content) ? $post->content : '' !!}
+    </div>
+
+    <textarea class="form-control"  name="content" type="textarea" style="display: none"
+              id="content-textarea">{{ isset($post->content) ? $post->content : ''}}</textarea>
     {!! $errors->first('content', '<p class="help-block">:message</p>') !!}
 </div>
-
 
 <div class="form-group ">
     <label for="category_id" class="control-label">Kategoria</label>
