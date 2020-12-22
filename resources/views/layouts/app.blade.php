@@ -21,7 +21,7 @@
     @stack('css')
 </head>
 <body>
-<div id="app">
+<div id="app" style="min-height: 100vh;">
     @include('topnavbar')
 
     <div class="container-fluid">
@@ -31,7 +31,9 @@
             </main>
         </div>
     </div>
+    @include('footer')
 </div>
+
 @stack('scripts')
 </body>
 </html>
