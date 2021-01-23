@@ -15,8 +15,8 @@ class WelcomeController extends Controller
     public function index()
     {
         $postsPerPage = 6;
-//        $posts=Post::latest()->where('status', '=', 0)->paginate($postsPerPage);
-        $posts=Post::latest()->paginate($postsPerPage);
-        return view('article.index',compact('posts'));
+        $posts=Post::latest()->where('status', '=', 1)->paginate($postsPerPage);
+//        $posts=Post::latest()->paginate($postsPerPage);
+        return view('home',compact('posts'));
     }
 }

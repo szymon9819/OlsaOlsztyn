@@ -18,22 +18,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @stack('css')
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div id="app" style="min-height: 100vh;">
+
     @include('topnavbar')
 
-    <div class="container-fluid">
+    <div class="container-fluid bg-color">
         <div class="row">
-            <main class="col-md-12 pt-3 px-4 bg-color">
                 @yield('content')
-            </main>
+
         </div>
     </div>
-    @include('footer')
+
+    <div class="pt-3 navbar justify-content-center bg-dark">
+        @include('footer')
+    </div>
 </div>
 
-@stack('scripts')
 </body>
 </html>

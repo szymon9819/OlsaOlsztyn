@@ -1,0 +1,31 @@
+/*article*/
+.list-article {
+    height: 70px;
+}
+
+.bg-color {
+    background-color: #333;
+}
+
+
+/*scoreboard table*/
+
+.scoreboard{
+    width: 300px;
+    height: auto;
+    font-size: 13px;
+}
+
+.scoreboard tbody tr{
+    height:20px;
+    font-size: 10px;
+}
+
+.scoreboard-small-cell {
+    width: 35px;
+
+}
+
+.scoreboard-medium-cell{
+    width:45px;
+}

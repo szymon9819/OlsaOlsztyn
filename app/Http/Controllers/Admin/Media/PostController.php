@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Media;
 
 use App\Http\Controllers\Controller;
 
@@ -133,7 +133,7 @@ class PostController extends Controller
             $thumbnail = Image::make($originalImage);
             $thumbnailDirectory = 'images/postThumbnails/';
             $thumbnailName = ($thumbnailDirectory . time() . $originalImage->getClientOriginalName());
-            $thumbnail->resize(150, null, function ($constraint) {
+            $thumbnail->resize(50, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($thumbnailName);
             $data['thumbnail'] = $thumbnailName;

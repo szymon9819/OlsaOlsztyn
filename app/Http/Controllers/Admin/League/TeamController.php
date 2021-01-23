@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\League;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\StorePostCategoryRequest;
-use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
-class PostCategoryController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
-        $categoriesPerPage= 15;
-        $categories=PostCategory::paginate($categoriesPerPage);
-
-        return view('admin.category.index',compact('categories'));
+        //
     }
 
     /**
@@ -29,7 +24,7 @@ class PostCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        //
     }
 
     /**
@@ -38,11 +33,20 @@ class PostCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostCategoryRequest $request)
+    public function store(Request $request)
     {
-        PostCategory::create($request->all());
+        //
+    }
 
-        return redirect('admin/categories')->with('message', 'Dodano nową kategorię');
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -53,8 +57,7 @@ class PostCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category=PostCategory::findOrFail($id);
-        return view('admin.category.edit',compact('category'));
+        //
     }
 
     /**
@@ -64,12 +67,9 @@ class PostCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePostCategoryRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $category=PostCategory::findOrFail($id);
-        $category->update($request->all());
-
-        return redirect('admin/categories')->with('message', 'Edytowano Kategorię');
+        //
     }
 
     /**
@@ -80,9 +80,6 @@ class PostCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category=PostCategory::findOrFail($id);
-        $category->delete();
-
-        return redirect('admin/categories')->with('message', 'Usunięto kategorię');
+        //
     }
 }

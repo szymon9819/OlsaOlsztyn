@@ -1,6 +1,13 @@
-<nav class="col-md-2 d-none d-md-block sidebar pt-3">
+<nav id="sidebar" class="col-md-2 sidebar pt-3">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-right pr-5" onclick="collapseSidebar()">
+                    <div class="col-10 col-md-6 col-sm-4">
+                        X
+                    </div>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     Panel
@@ -17,10 +24,27 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.leagues.index')}}">
+                    Ligi
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.seasons.index')}}">
+                    Sezony
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.stadiums.index')}}">
+                    Hale
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">
+{{--                <a class="nav-link" href="{{route('admin.matches.index')}}">--}}
                     Mecze
                 </a>
             </li>
+
         </ul>
     </div>
 </nav>

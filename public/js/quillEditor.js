@@ -16,6 +16,8 @@ $(document).ready(function () {
         modules: {
             toolbar: toolbarOptions,
         },
+        placeholder: 'Treść postu...',
+        scrollingContainer: '#scrolling-container',
         theme: 'snow',
     });
 
@@ -65,6 +67,7 @@ $(document).ready(function () {
 
     function insertToEditor(url) {
         const range = editor.getSelection();
+        console.log(range);
         editor.insertEmbed(range.index, 'image', url);
     }
 });

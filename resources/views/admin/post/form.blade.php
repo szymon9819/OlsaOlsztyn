@@ -1,7 +1,7 @@
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
     <label for="title">Tytul</label>
     <input type="text" name="title" class="form-control" id="titile" autofocus
-           placeholder="Tytuł postu" value="{{ isset($post->title) ? $post->title : ''}} " >
+           placeholder="Tytuł postu" value="{{ isset($post->title) ? $post->title : ''}} ">
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
 
@@ -10,20 +10,20 @@
     <input type="file" name="thumbnail" id="file">
 </div>
 
-<div class="form-group {{ $errors->has('content') ? 'has-error' : ''}}">
-    <label for="content" class="control-label">{{ 'Treść postu' }}</label>
-    <div id="editor"  data-img-url="{{route('admin.post.image.store')}}" >
-        {!! isset($post->content) ? $post->content : '' !!}
+<div class="form-group ">
+    <div id="scrolling-container" class="quill-editor">
+        <div id="editor" data-img-url="{{route('admin.post.image.store')}}">
+            {!! isset($post->content) ? $post->content : '' !!}
+        </div>
     </div>
 
-    <textarea class="form-control"  name="content" type="textarea" style="display: none"
+    <textarea class="form-control" name="content" type="textarea" style="display: none"
               id="content-textarea">{{ isset($post->content) ? $post->content : ''}}</textarea>
-    {!! $errors->first('content', '<p class="help-block">:message</p>') !!}
 </div>
 
 <div class="form-group ">
     <label for="category_id" class="control-label">Kategoria</label>
-    <select name="post_category_id" id="category_id" class="form-control">
+    <select name="post_category_id" id="category_id" class="form-control select2">
         @foreach($categories as $category)
             <option value="{{$category->id}}"
                     @if(!empty($post) && $category->id == $post->post_category_id) selected @endif>
@@ -34,11 +34,11 @@
 </div>
 
 <div class="form-group">
-    <label for="tag_id" class="control-label">Tagi</label>
-    <select name="tags[]" id="tag_id" class="form-control" multiple>
+    <label for="tag" class="control-label">Tagi</label>
+    <select name="tags[]" id="tag" class="form-control select2" multiple>
         @foreach($tags as $tag)
             <option value="{{$tag->id}}"
-                    @if(!empty($post) && in_array( $tag->id,array_intersect(array_column($post->tags()->get()->toArray(),'id'), array_column($tags->toArray(),'id')))) selected @endif>
+                    @if(!empty($post) && in_array( $tag->id,array_intersect(array_column($post->tags->toArray(),'id'), array_column($tags->toArray(),'id')))) selected @endif>
                 {{$tag->name}}
             </option>
         @endforeach

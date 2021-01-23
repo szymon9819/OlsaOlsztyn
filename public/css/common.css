@@ -1,0 +1,13 @@
+.height-full {
+    min-height: 100vh;
+}
+
+.bg-color {
+    background-color: #333;
+}
+
+/*table*/
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    color: #ffffff;
+}
+

@@ -7,7 +7,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route('admin.posts.update',$post->id) }}" accept-charset="UTF-8"
               class="form-horizontal" enctype="multipart/form-data">
-            {{ method_field('PATCH') }}
+            @method('PATCH')
             @csrf
 
             @include ('admin.post.form')

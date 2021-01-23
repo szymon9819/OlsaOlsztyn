@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\League;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\StorePostTagsRequest;
-use App\Models\PostTag;
 use Illuminate\Http\Request;
 
-class PostTagController extends Controller
+class MatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class PostTagController extends Controller
      */
     public function index()
     {
-        $tagsPerPage= 15;
-        $tags=PostTag::paginate($tagsPerPage);
-
-        return view('admin.tag.index',compact('tags'));
+        //
     }
 
     /**
@@ -29,7 +24,7 @@ class PostTagController extends Controller
      */
     public function create()
     {
-        return view('admin.tag.create');
+        //
     }
 
     /**
@@ -38,15 +33,20 @@ class PostTagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostTagsRequest $request)
+    public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|max:30',
-        ]);
+        //
+    }
 
-        PostTag::create($request->all());
-
-        return redirect('admin/tags')->with('message', 'Dodano nowy tag');
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -57,8 +57,7 @@ class PostTagController extends Controller
      */
     public function edit($id)
     {
-        $tag=PostTag::findOrFail($id);
-        return view('admin.tag.edit',compact('tag'));
+        //
     }
 
     /**
@@ -68,15 +67,9 @@ class PostTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePostTagsRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name' => 'required|max:30',
-        ]);
-
-        $tag=PostTag::findOrFail($id);
-        $tag->update($request->all());
-        return redirect('admin/tags')->with('message', 'Edytowano tag');
+        //
     }
 
     /**
@@ -87,9 +80,6 @@ class PostTagController extends Controller
      */
     public function destroy($id)
     {
-        $tag=PostTag::findOrFail($id);
-        $tag->delete();
-
-        return redirect('admin/tags')->with('message', 'Usunięto tag');
+        //
     }
 }

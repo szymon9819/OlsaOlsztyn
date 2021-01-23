@@ -23,11 +23,16 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('dashboard');
 
-    Route::resource('posts', Admin\PostController::class);
-    Route::post('/upload-post-image', 'Admin\PostImageController@store')->name('post.image.store');
+    Route::resource('posts', Admin\Media\PostController::class);
+    Route::post('/upload-post-image', 'Admin\Media\PostImageController@store')->name('post.image.store');
 
-    Route::resource('categories', Admin\PostCategoryController::class)->except('show');
-    Route::resource('tags', Admin\PostTagController::class)->except('show');
+    Route::resource('categories', Admin\Media\PostCategoryController::class)->except('show');
+    Route::resource('tags', Admin\Media\PostTagController::class)->except('show');
+
+    Route::resource('leagues', Admin\League\LeagueController::class)->except('show');
+    Route::resource('seasons', Admin\League\SeasonController::class)->except('show');
+    Route::resource('matches', Admin\League\MatchController::class)->except('show');
+    Route::resource('stadiums', Admin\League\StadiumController::class)->except('show');
 });
 
 Route::get('/{id}', 'Article\ArticleController@show')->name('article.show');

@@ -2,30 +2,64 @@
     min-height: 100vh;
 }
 
-.bg-color {
-    background-color: #333;
-}
 
 /*sidebar*/
 .nav.flex-column li a {
     color: #ffffff;
+    font-size: 20px;
 }
 
 .nav.flex-column li a:hover {
     background: #333;
-    color: #ffffff;
+    color: #818181;
 }
+
+#show-sidebar-btn {
+    display: none;
+}
+
+#show-sidebar-btn h2:hover {
+    color: #818181!important;
+}
+
+/*pagination*/
+.pagination > li > a,
+.pagination > li > span {
+    color: #000000!important;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #333!important;
+    color: #ffffff!important;
+    border-color: #333!important;
+}
+
 
 /*quill editor*/
 .ql-toolbar {
     background: #dae0e5;
 }
 
-.ql-container{
+.ql-container {
     background: #ffffff;
     color: #000000;
 }
 
-.ql-editor{
+.ql-editor {
     min-height: 33vh;
 }
+
+#scrolling-container {
+    overflow: auto;
+    height: 33vh;
+}
+
+.ql-container .ql-editor {
+    overflow: visible;
+}
+
