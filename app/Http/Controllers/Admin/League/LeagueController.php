@@ -45,7 +45,14 @@ class LeagueController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $league = League::create($data);
+        try {
+            $league = League::create($data);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 23000) {
+                return redirect('admin/leagues/create')->with('message', 'Nazwa ligi już istnieje!!');
+            }
+        }
+
         if (!empty($data['seasons']))
             $league->seasons()->attach($data['seasons']);
 
@@ -81,7 +88,13 @@ class LeagueController extends Controller
     {
         $data = $request->all();
         $league = League::findOrFail($id);
-        $league->update($data);
+        try {
+            $league->update($data);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 23000) {
+                return redirect('admin/leagues/' . $id . '/edit')->with('message', 'Nazwa ligi już istnieje!!');
+            }
+        }
         isset($data['seasons']) ? $league->seasons()->sync($data['seasons']) : $league->seasons()->sync([]);
         if (array_key_exists('stadiums', $data))
             Stadium::updateLeagueAssociation($data['stadiums'], $league);
@@ -95,7 +108,8 @@ class LeagueController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         $league = League::findOrFail($id);
         $league->delete();

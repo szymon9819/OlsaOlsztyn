@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Admin\Media;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Post\StorePostRequest;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\PostTag;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
@@ -48,8 +48,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data = $this->prepareData($request);
-        $post = Post::create($this->prepareData($request));
+        $data = (new PostService())->prepareData($request);
+        $post = Post::create($data);
         if (!empty($data['tags']))
             $post->tags()->attach($data['tags']);
 
@@ -93,7 +93,6 @@ class PostController extends Controller
     {
         $data = $this->prepareData($request);
         $post = Post::findOrFail($id);
-//        if (!empty($post->thumbnail) && empty($request->all()['thumbnail'])) {
         if (!empty($post->thumbnail)) {
             File::delete($post->thumbnail);
             $post->thumbnail = '';
@@ -121,29 +120,6 @@ class PostController extends Controller
         $post->delete();
 
         return redirect('admin/posts')->with('message', 'Usunięto Post');
-    }
-
-    private function prepareData(StorePostRequest $request)
-    {
-        $data = $request->all();
-        $data['status'] = $request->boolean('status');
-
-        if ($request->hasFile('thumbnail')) {
-            $originalImage = $request->file('thumbnail');
-            $thumbnail = Image::make($originalImage);
-            $thumbnailDirectory = 'images/postThumbnails/';
-            $thumbnailName = ($thumbnailDirectory . time() . $originalImage->getClientOriginalName());
-            $thumbnail->resize(50, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($thumbnailName);
-            $data['thumbnail'] = $thumbnailName;
-        }
-        return $data;
-    }
-
-    private function deleteImageFromPublicDirectory(string $postContent)
-    {
-
     }
 
 }

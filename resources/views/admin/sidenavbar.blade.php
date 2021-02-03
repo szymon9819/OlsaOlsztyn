@@ -1,16 +1,14 @@
 <nav id="sidebar" class="col-md-2 sidebar pt-3">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
-            <li class="nav-item">
+            <li class="nav-item d-flex">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                    Panel
+                </a>
                 <a class="nav-link text-right pr-5" onclick="collapseSidebar()">
                     <div class="col-10 col-md-6 col-sm-4">
                         X
                     </div>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                    Panel
                 </a>
             </li>
             <li class="nav-item dropdown ">
@@ -31,6 +29,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.seasons.index')}}">
                     Sezony
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.teams.index')}}">
+                    Drużyny
                 </a>
             </li>
             <li class="nav-item">

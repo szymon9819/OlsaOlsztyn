@@ -18,6 +18,7 @@ class SeasonController extends Controller
     {
         $seasonsPerPage = 15;
         $seasons = Season::paginate($seasonsPerPage);
+
         return view('admin.season.index', compact('seasons'));
     }
 
@@ -35,30 +36,37 @@ class SeasonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $data = $request->all();
-        $season = Season::create($data);
-        if(!empty($data['leagues']))
+        try {
+            $season = Season::create($data);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 23000) {
+                return redirect('admin/seasons/create')->with('message', 'Nazwa sezonu już istnieje!!');
+            }
+        }
+
+        if (!empty($data['leagues']))
             $season->leagues()->attach($data['leagues']);
 
-        return redirect('admin/seasons')->with('message', 'Dodano nowy sezon');
+        return redirect('admin/seasons/')->with('message', 'Dodano nowy sezon');
     }
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $season= Season::findOrFail($id);
-        $leagues= League::all();
+        $season = Season::findOrFail($id);
+        $leagues = League::all();
 
         return view('admin.season.edit', compact('season', 'leagues'));
     }
@@ -66,16 +74,22 @@ class SeasonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $data=$request->all();
-        $season= Season::findOrFail($id);
-        $season->update($data);
-        isset($data['leagues'])? $season->leagues()->sync($data['leagues']) :  $season->leagues()->sync([]);
+        $data = $request->all();
+        $season = Season::findOrFail($id);
+        try {
+            $season->update($data);
+        } catch (\Exception $e) {
+            if ($e->getCode() == 23000) {
+                return redirect('admin/seasons/' . $id . '/edit')->with('message', 'Nazwa sezonu już istnieje!!');
+            }
+        }
+        isset($data['leagues']) ? $season->leagues()->sync($data['leagues']) : $season->leagues()->sync([]);
 
         return redirect('admin/seasons')->with('message', 'Edytowano Sezon');
     }
@@ -83,12 +97,12 @@ class SeasonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $season= Season::findOrFail($id);
+        $season = Season::findOrFail($id);
         $season->delete();
 
         return redirect('admin/seasons')->with('message', 'Usunięto Sezon');

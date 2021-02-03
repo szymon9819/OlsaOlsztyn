@@ -1,3 +1,9 @@
+@if (session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+@endif
+
 <div class="form-group {{ $errors->has('season') ? 'has-error' : ''}}">
     <label for="title">Nazwa Sezonu</label>
     <input type="text" name="season" class="form-control" id="season" autofocus

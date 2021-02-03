@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\League;
 
 use App\Http\Controllers\Controller;
+use App\Models\League;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -14,7 +16,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $teamsPerPage = 15;
+        $teams = Team::paginate($teamsPerPage);
+        return view('admin.team.index', compact('teams'));
     }
 
     /**
@@ -24,7 +28,8 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        $leagues = League::all();
+        return view('admin.team.create', compact('leagues'));
     }
 
     /**
@@ -35,7 +40,13 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $team= Team::create($request->all());
+        if(!empty($request['league_id'])) {
+            $team->league_id = $request['league_id'];
+            $team->save();
+        }
+
+        return redirect('admin/teams/')->with('message', 'Dodano nową drużynę');
     }
 
     /**
@@ -57,7 +68,10 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Team::findOrFail($id);
+        $leagues = League::all();
+
+        return view('admin.team.edit', compact('team', 'leagues'));
     }
 
     /**
@@ -69,7 +83,14 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $team = Team::findOrFail($id);
+        $team->update($request->all());
+        if(!empty($request['league_id'])) {
+            $team->league_id = $request['league_id'];
+            $team->save();
+        }
+
+        return redirect('admin/teams')->with('message', 'Edytowano dane drużyny');
     }
 
     /**
@@ -80,6 +101,9 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Team::findOrFail($id)->delete();
+
+        return redirect('admin/teams')->with('message', 'Usunięto Drużynę');
     }
+
 }

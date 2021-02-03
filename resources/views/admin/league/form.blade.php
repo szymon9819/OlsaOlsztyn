@@ -1,3 +1,8 @@
+@if (session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+@endif
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
     <label for="title">Nazwa ligi</label>
     <input type="text" name="name" class="form-control" id="name" autofocus

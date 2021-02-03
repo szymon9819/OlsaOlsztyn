@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\League;
+use App\Services\LeagueSheduleService;
 use Illuminate\Http\Request;
+use ScheduleBuilder;
 
 class AdminController extends Controller
 {
@@ -14,7 +17,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $teams=League::find(3)->teams()->pluck('name')->toArray();
+        $schedule =(new LeagueSheduleService())->generateSchedule($teams);
+
+        return view('admin.dashboard',compact('teams','schedule'));
     }
 
     /**

@@ -57,6 +57,7 @@
 #scrolling-container {
     overflow: auto;
     height: 33vh;
+    background-color: #ffffff;
 }
 
 .ql-container .ql-editor {
