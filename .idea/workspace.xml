@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0b571ab-0823-4e51-b418-f469f848219b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/OlsaOlsztyn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OlsaOlsztyn.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/LeagueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/LeagueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/SeasonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/SeasonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/league/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/league/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/league/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/league/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/season/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/season/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/season/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/season/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/sidenavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sidenavbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="d0b571ab-0823-4e51-b418-f469f848219b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,7 +234,7 @@
       <workItem from="1612199073811" duration="632000" />
       <workItem from="1612300280735" duration="1972000" />
       <workItem from="1612345003216" duration="974000" />
-      <workItem from="1612361821426" duration="8064000" />
+      <workItem from="1612361821426" duration="8227000" />
     </task>
     <servers />
   </component>
@@ -269,6 +250,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Notifications/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1607431611253" />
+    <state x="725" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612372110477">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="725" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612372110477" />
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1612300958164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -315,12 +300,12 @@
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610830528108" />
     <state x="-1643" y="65" key="SettingsEditor/0.0.1920.1040/-1920.9.1536.824@-1920.9.1536.824" timestamp="1607365228112" />
     <state x="346" y="71" key="SettingsEditor/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1607517949493" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1612362037169">
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1612372092728">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1611947343961" />
     <state x="-1455" y="247" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@-1920.9.1536.824" timestamp="1607364097262" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612362037169" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612372092728" />
     <state x="0" y="0" key="com.jetbrains.php.config.phpInfo.PhpInfo.PhpInfoDialog" timestamp="1610830500143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
