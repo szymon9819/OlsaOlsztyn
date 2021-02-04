@@ -27,7 +27,7 @@
     <select name="stadiums[]" id="stadiums" class="form-control select2" multiple>
         @foreach($stadiums as $stadium)
             <option value="{{$stadium->id}}"
-                    @if(!empty($league) && in_array( $stadium->id, $league->stadiums()->pluck()->toArray(),'id')) selected @endif>
+                    @if(!empty($league) && in_array( $stadium->id, $league->stadiums()->pluck('id')->toArray(),'id')) selected @endif>
                 {{$stadium->adress}}
             </option>
         @endforeach

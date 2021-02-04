@@ -12,4 +12,8 @@ class Season extends Model
         return $this->belongsToMany(League::class, 'league_has_seasons','season_id','league_id');
     }
 
+    public function matches(){
+        return $this->hasMany(Match::class);
+    }
+
 }

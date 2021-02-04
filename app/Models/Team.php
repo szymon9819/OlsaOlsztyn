@@ -12,7 +12,10 @@ class Team extends Model
         return $this->belongsTo(League::class);
     }
 
-    public function matches(){
-        return $this->hasMany(Match::class);
+    public function awayMatches(){
+        return $this->hasMany(Match::class, 'guest_id');
+    }
+    public function homeMatches(){
+        return $this->hasMany(Match::class, 'home_id');
     }
 }

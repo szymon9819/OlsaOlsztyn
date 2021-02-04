@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\League;
 
 use App\Http\Controllers\Controller;
 use App\Models\League;
+use App\Models\Season;
+use App\Models\Team;
+use App\Services\LeagueSheduleService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +19,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $leagues= League::all();
 
-        return view('admin.dashboard',compact('leagues'));
     }
 
     /**
@@ -27,24 +29,30 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $leagues = League::all();
+
+        return view('admin.schedule.create', compact('leagues'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $league = League::findOrFail($request->league);
+        $season = $league->seasons->last();
+        $teams = $league->teams->toArray();
+
+        $schedule = (new LeagueSheduleService())->generateSchedule($teams, $season, $request->date, $request->time);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -55,7 +63,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -66,8 +74,8 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -78,7 +86,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

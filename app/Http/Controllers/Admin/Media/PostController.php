@@ -91,7 +91,7 @@ class PostController extends Controller
      */
     public function update(StorePostRequest $request, $id)
     {
-        $data = $this->prepareData($request);
+        $data = (new PostService())->prepareData($request);
         $post = Post::findOrFail($id);
         if (!empty($post->thumbnail)) {
             File::delete($post->thumbnail);
@@ -115,8 +115,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-//        $this->deleteImageFromPublicDirectory($post->content);
-        File::delete($post->thumbnail);
+        $images = (new PostService())->getImages($post->content);
+        array_push($images,$post->thumbnail);
+        File::delete($images);
         $post->delete();
 
         return redirect('admin/posts')->with('message', 'Usunięto Post');

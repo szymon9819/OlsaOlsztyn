@@ -2,13 +2,11 @@
 
 namespace App\Services;
 
-
-use App\Http\Requests\Post\StorePostRequest;
 use Intervention\Image\Facades\Image;
 
 class PostService
 {
-    public function prepareData(StorePostRequest $request)
+    public function prepareData($request)
     {
         $data = $request->all();
         $data['status'] = $request->boolean('status');
@@ -26,5 +24,13 @@ class PostService
         return $data;
     }
 
+    public function getImages($postContent)
+    {
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $postContent, $images);
+        $imagesPath = [];
+        foreach ($images[1] as $img)
+            array_push($imagesPath, explode(':8000/', $img)[1]);
+        return $imagesPath;
+    }
 
 }

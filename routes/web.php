@@ -24,6 +24,7 @@ Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function ()
     Route::resource('matches', Admin\League\MatchController::class)->except('show');
     Route::resource('stadiums', Admin\League\StadiumController::class)->except('show');
     Route::resource('teams', Admin\League\TeamController::class);
+    Route::resource('schedule', Admin\League\ScheduleController::class);
 });
 
 Route::get('/{id}', 'Article\ArticleController@show')->name('article.show');
