@@ -50,7 +50,7 @@
                             </form>
                     </tr>
                 @endforeach
-
+                    {{$leagues->links()}}
 
                 </tbody>
             </table>

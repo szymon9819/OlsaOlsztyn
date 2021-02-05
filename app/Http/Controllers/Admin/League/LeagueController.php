@@ -108,8 +108,7 @@ class LeagueController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy($id)
+    public function destroy($id)
     {
         $league = League::findOrFail($id);
         $league->delete();

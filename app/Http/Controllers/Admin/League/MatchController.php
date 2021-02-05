@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\League;
 
 use App\Http\Controllers\Controller;
+use App\Models\Match;
+use App\Models\MatchResult;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -14,39 +16,9 @@ class MatchController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $matches= Match::paginate(20);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return view('admin.match.index', compact( 'matches'));
     }
 
     /**
@@ -57,7 +29,8 @@ class MatchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $match = Match::findOrFail($id);
+        return view('admin.match.edit', compact('match'));
     }
 
     /**
@@ -69,7 +42,24 @@ class MatchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $match= Match::findOrFail($id);
+        $matchResult= $match->matchResult;
+        $match->update($request->all());
+        if(!empty($matchResult) && !empty($request->home) && !empty($request->guest))
+            $matchResult->update($request->all());
+        else if(!empty($request->home) && !empty($request->guest)){
+            $matchResult = MatchResult::create([
+                'home'=>$request->home,
+                'guest'=>$request->guest,
+                'match_id'=>$match->id
+            ]);
+        }
+        if(!empty($matchResult) && empty($request->home) && empty($request->guest)){
+            $matchResult->delete();
+        }
+
+
+        return  redirect()->route('admin.dashboard');
     }
 
     /**
@@ -80,6 +70,9 @@ class MatchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $match = Match::findOrFail($id);
+        $match->delete();
+
+        return redirect('admin/matches')->with('message', 'Usunięto mecz');
     }
 }

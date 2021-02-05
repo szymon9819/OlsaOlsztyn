@@ -11,14 +11,12 @@
         <h3><strong>Mecze</strong></h3>
     </div>
     <div class="card-body">
-        <a href="{{ route('admin.matches.create') }}" class="btn btn-success btn mb-3" title="nowy mecz">
-            <i class="fa fa-plus" aria-hidden="true"></i> Dodaj mecz
-        </a>
         <div class="table-responsive">
             <table class="table text-white table-hover">
                 <thead>
                 <tr>
-                    <th>Nazwa</th>
+                    <th>Mecz</th>
+                    <th>Wynik meczu</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -26,11 +24,12 @@
                 <tbody>
                 @foreach ($matches as $match)
                     <tr>
-                        <td class="col-md" >{{$match->name}}</td>
+                        <td class="col-md">{{$match->homeTeam->name}} vs {{$match->awayTeam->name}}</td>
+                        <td class="col-md">{{ isset($match->matchResult) ? $match->matchResult->home.' : '.$match->matchResult->guest : ''}} </td>
 
                         <td class="col-md-1">
-                            <a href="{{ route('admin.leagues.edit',$match->id) }}" class="btn btn-success btn "
-                               title="nowy mecz">
+                            <a href="{{ route('admin.matches.edit',$match->id) }}" class="btn btn-success btn"
+                               title="edytuj mecz">
                                 Edytuj
                             </a></td>
                         <td class="col-md-1">
@@ -44,8 +43,7 @@
                             </form>
                     </tr>
                 @endforeach
-
-
+                {{ $matches->links() }}
                 </tbody>
             </table>
         </div>

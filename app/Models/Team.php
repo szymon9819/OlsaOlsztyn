@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    protected $fillable=['name', 'shortcut'];
+    protected $fillable=['name', 'shorthand'];
 
     public function league(){
         return $this->belongsTo(League::class);

@@ -50,7 +50,7 @@
                             </form>
                     </tr>
                 @endforeach
-
+                {{$seasons->links()}}
 
                 </tbody>
             </table>

@@ -42,8 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-{{--                <a class="nav-link" href="{{route('admin.matches.index')}}">--}}
+                <a class="nav-link" href="{{route('admin.matches.index')}}">
                     Mecze
                 </a>
             </li>

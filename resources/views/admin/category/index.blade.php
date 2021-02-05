@@ -44,7 +44,7 @@
                             </form>
                     </tr>
                 @endforeach
-
+                {{ $categories->links() }}
 
                 </tbody>
             </table>

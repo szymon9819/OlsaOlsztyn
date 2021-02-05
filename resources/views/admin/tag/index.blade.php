@@ -44,7 +44,7 @@
                             </form>
                     </tr>
                 @endforeach
-
+                {{$tags->links()}}
 
                 </tbody>
             </table>

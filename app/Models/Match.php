@@ -6,10 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Match extends Model
 {
-    protected $fillable=['match_day','time'];
+    protected $fillable = ['match_day', 'time'];
 
-    public function matchResult(){
-        return $this->belongsTo(MatchResult::class);
+    public function matchResult()
+    {
+        return $this->hasOne(MatchResult::class);
     }
 
+    public function homeTeam()
+    {
+        return $this->belongsTo(Team::class, 'home_id');
+    }
+
+    public function awayTeam()
+    {
+        return $this->belongsTo(Team::class, 'guest_id');
+    }
 }

@@ -19,4 +19,6 @@ class League extends Model
     public function seasons(){
         return $this->belongsToMany(Season::class, 'league_has_seasons','league_id','season_id');
     }
+
+
 }

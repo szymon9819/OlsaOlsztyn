@@ -48,7 +48,7 @@
                             </form>
                     </tr>
                 @endforeach
-
+                {{$teams->links()}}
 
                 </tbody>
             </table>
