@@ -18,7 +18,7 @@
 
 <div class="form-group">
     <label for="firstMatchDate" class="control-label">Data rozpoczęcia</label>
-    <input type="text" id="firstMatchDate" class="form-control col-3 datepicker" name="date">
+    <input type="text" id="firstMatchDate" class="form-control col-3 datepicker" name="match_day">
 </div>
 
 <div class="form-group ">

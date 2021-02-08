@@ -30,7 +30,6 @@
     <div class="container-fluid bg-color">
         <div class="row">
                 @yield('content')
-
         </div>
     </div>
 

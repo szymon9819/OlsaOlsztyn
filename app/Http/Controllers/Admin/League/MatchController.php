@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\League;
 use App\Http\Controllers\Controller;
 use App\Models\Match;
 use App\Models\MatchResult;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -16,15 +17,15 @@ class MatchController extends Controller
      */
     public function index()
     {
-        $matches= Match::paginate(20);
+        $matches = Match::paginate(20);
 
-        return view('admin.match.index', compact( 'matches'));
+        return view('admin.match.index', compact('matches'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -36,36 +37,38 @@ class MatchController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $match= Match::findOrFail($id);
-        $matchResult= $match->matchResult;
-        $match->update($request->all());
-        if(!empty($matchResult) && !empty($request->home) && !empty($request->guest))
+        $match = Match::findOrFail($id);
+        $matchResult = $match->matchResult;
+        $match->update(['match_day' => Carbon::parse($request->match_day)->format('Y-m-d'),
+            'time' => $request->time]);
+
+        if (!empty($matchResult) && !empty($request->home) && !empty($request->guest))
             $matchResult->update($request->all());
-        else if(!empty($request->home) && !empty($request->guest)){
+        else if (!empty($request->home) && !empty($request->guest)) {
             $matchResult = MatchResult::create([
-                'home'=>$request->home,
-                'guest'=>$request->guest,
-                'match_id'=>$match->id
+                'home' => $request->home,
+                'guest' => $request->guest,
+                'match_id' => $match->id
             ]);
         }
-        if(!empty($matchResult) && empty($request->home) && empty($request->guest)){
+        if (!empty($matchResult) && empty($request->home) && empty($request->guest)) {
             $matchResult->delete();
         }
 
 
-        return  redirect()->route('admin.dashboard');
+        return redirect()->route('admin.dashboard');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

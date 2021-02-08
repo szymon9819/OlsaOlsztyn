@@ -18,4 +18,5 @@ class Team extends Model
     public function homeMatches(){
         return $this->hasMany(Match::class, 'home_id');
     }
+
 }

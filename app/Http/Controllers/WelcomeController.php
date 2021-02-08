@@ -15,7 +15,6 @@ class WelcomeController extends Controller
     {
         $postsPerPage = 6;
         $posts=Post::latest()->where('status', '=', 1)->paginate($postsPerPage);
-//        $posts=Post::latest()->paginate($postsPerPage);
         return view('home',compact('posts'));
     }
 }

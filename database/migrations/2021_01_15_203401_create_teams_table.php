@@ -22,7 +22,7 @@ class CreateTeamsTable extends Migration
 
         Schema::table('teams', function (Blueprint $table) {
             $table->unsignedBigInteger('league_id')->nullable();
-            $table->foreign('league_id')->references('id')->on('leagues');
+            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('set null');
         });
     }
 

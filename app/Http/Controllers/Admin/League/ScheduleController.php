@@ -46,7 +46,7 @@ class ScheduleController extends Controller
         $season = $league->seasons->last();
         $teams = $league->teams->toArray();
 
-        $schedule = (new LeagueSheduleService())->generateSchedule($teams, $season, $request->date, $request->time);
+        $schedule = (new LeagueSheduleService())->generateSchedule($teams, $season, $request->match_day, $request->time);
     }
 
     /**

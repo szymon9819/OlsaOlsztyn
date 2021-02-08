@@ -8,14 +8,14 @@ use Carbon\Carbon;
 
 class AdminDashboardService
 {
-    public function getMatchWithoutResult($leagues,$lastSeason)
+    public function getMatchWithoutResult($leagues,$season)
     {
         $matches = collect([]);
         foreach ($leagues as $league) {
-            if (!empty($league->seasons()->where('id', $lastSeason->id)->first())) {
+            if (!empty($league->seasons()->findOrFail($season->id))) {
                 $tmp = [];
                 //get all macthes for specify league if season is newest, and match day is less than actual day
-                foreach ($league->seasons()->where('id', $lastSeason->id)->first()->matches()
+                foreach ($league->seasons()->findOrFail($season->id)->matches()
                              ->whereIn('home_id', $league->teams()->pluck('id')->toArray())
                              ->whereDate('match_day', '<', Carbon::now())->get() as $match) {
                     if (empty($match->matchResult)) {
