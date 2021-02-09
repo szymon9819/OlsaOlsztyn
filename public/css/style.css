@@ -1,12 +1,20 @@
 /*article*/
 .list-article {
     height: 70px;
+    background: #202326;
+}
+
+h3{
+    color:#fff
 }
 
 .bg-color {
     background-color: #333;
 }
 
+th a span {
+    color:#fff;
+}
 
 /*scoreboard table*/
 

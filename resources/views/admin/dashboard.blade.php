@@ -36,38 +36,52 @@
                 </ul>
             </div>
 
-            <div class="col-md-6">
-                @foreach($scoreboards as $leaugeName => $scoreboard)
-                <div class="scoreboard">
-                    <table class="table table-bordered table-striped text-white">
-                        <thead>
-                        <tr>
-                            <th colspan="3">{{$leaugeName}}</th>
-                            <th>M</th>
-                            <th>W</th>
-                            <th>S</th>
-                            <th>P</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($scoreboard as $team => $data)
-                            <tr>
-                                <th class="scoreboard-small-cell">{{$loop->index+1}}</th>
-                                <th colspan="2">{{$team}}</th>
-                                <th class="scoreboard-small-cell">{{$data['matches']}}</th>
-                                <th class="scoreboard-small-cell">{{$data['wins']}}</th>
-                                <th class="scoreboard-medium-cell">{{$data['sw']}}:{{$data['sl']}}</th>
-                                <th class="scoreboard-small-cell">{{$data['pts']}}</th>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                @endforeach
-            </div>
-        </div>
+            <div class="col-lg-4 col-md-5">
 
-        <div class="col-12 col-md-8 col-lg-6">
+                <div id="myCarousel" class="carousel"data-interval="false">
+                    <div class="carousel-inner">
+                        @foreach($scoreboards as $leaugeName =>$scoreboard)
+                            <div class="carousel-item {{$loop->index == 0 ? 'active':''}}">
+                                <div class="scoreboard ">
+                                    <table class="table table-bordered table-striped text-white">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="3">
+                                                <a href="#myCarousel" data-slide="prev">
+                                                    <span><</span></a>
+                                                {{$leaugeName}}
+                                                <a href="#myCarousel" data-slide="next">
+                                                    <span> > </span>
+                                                </a>
+                                            </th>
+                                            <th>M</th>
+                                            <th>W</th>
+                                            <th>S</th>
+                                            <th>P</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach ($scoreboard as $team => $data)
+                                            <tr>
+                                                <th class="scoreboard-small-cell">{{$loop->index+1}}</th>
+                                                <th colspan="2">{{$team}}</th>
+                                                <th class="scoreboard-small-cell">{{$data['matches']}}</th>
+                                                <th class="scoreboard-small-cell">{{$data['wins']}}</th>
+                                                <th class="scoreboard-medium-cell">{{$data['sw']}}:{{$data['sl']}}</th>
+                                                <th class="scoreboard-small-cell">{{$data['pts']}}</th>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-8 col-lg-6">
             <ul id="schedule" class="list-group text-white">
                 @foreach ($leagues as $league)
                     <li class="list-group-item border-0 bg-dark">

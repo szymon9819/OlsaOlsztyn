@@ -5,7 +5,7 @@
     <div class="col-lg-8 col-md-5">
         <ul class="list-group col-12">
             @foreach($posts as $post)
-                <li class="list-group-item list-article">
+                <li class="list-group-item rounded-0 list-article ">
                     <a href="{{route('article.show',$post->id)}}" style="text-decoration:none;">
                         <div class="row">
                             @if(!empty($post->thumbnail))
@@ -13,7 +13,7 @@
                                     <img height="50" src="{{asset($post->thumbnail)}}">
                                 </div>
                             @endif
-                            <div class="text-secondary align-self-center">
+                            <div class="align-self-center">
                                 <h3>
                                     {{$post->title}}
                                 </h3>
@@ -25,37 +25,48 @@
         </ul>
     </div>
 
-    <div class="col-lg-3  col-md-5">
+    <div class="col-lg-4 col-md-5">
 
-        @foreach($scoreboards as $leaugeName =>$scoreboard)
-            <div class="scoreboard ">
-                <table class="table table-bordered table-striped text-white">
-                    <thead>
-                    <tr>
-                        <th colspan="3">{{$leaugeName}}</th>
-                        <th>M</th>
-                        <th>W</th>
-                        <th>S</th>
-                        <th>P</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($scoreboard as $team => $data)
-                        <tr>
-                            <th class="scoreboard-small-cell">{{$loop->index+1}}</th>
-                            <th colspan="2">{{$team}}</th>
-                            <th class="scoreboard-small-cell">{{$data['matches']}}</th>
-                            <th class="scoreboard-small-cell">{{$data['wins']}}</th>
-                            <th class="scoreboard-medium-cell">{{$data['sw']}}:{{$data['sl']}}</th>
-                            <th class="scoreboard-small-cell">{{$data['pts']}}</th>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+        <div id="myCarousel" class="carousel" data-interval="false">
+            <div class="carousel-inner">
+                @foreach($scoreboards as $leaugeName =>$scoreboard)
+                    <div class="carousel-item {{$loop->index == 0 ? 'active':''}}">
+                        <div class="scoreboard ">
+                            <table class="table table-bordered table-striped text-white">
+                                <thead>
+                                <tr>
+                                    <th colspan="3">
+                                        <a href="#myCarousel" data-slide="prev">
+                                            <span><</span></a>
+                                        {{$leaugeName}}
+                                        <a href="#myCarousel" data-slide="next">
+                                            <span> > </span>
+                                        </a>
+                                    </th>
+                                    <th>M</th>
+                                    <th>W</th>
+                                    <th>S</th>
+                                    <th>P</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($scoreboard as $team => $data)
+                                    <tr>
+                                        <th class="scoreboard-small-cell">{{$loop->index+1}}</th>
+                                        <th colspan="2">{{$team}}</th>
+                                        <th class="scoreboard-small-cell">{{$data['matches']}}</th>
+                                        <th class="scoreboard-small-cell">{{$data['wins']}}</th>
+                                        <th class="scoreboard-medium-cell">{{$data['sw']}}:{{$data['sl']}}</th>
+                                        <th class="scoreboard-small-cell">{{$data['pts']}}</th>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
+        </div>
     </div>
-
-
 
 @endsection
