@@ -37,16 +37,16 @@
             </div>
 
             <div class="col-md-6">
+                @foreach($scoreboards as $leaugeName => $scoreboard)
                 <div class="scoreboard">
                     <table class="table table-bordered table-striped text-white">
                         <thead>
                         <tr>
-                            <th></th>
-                            <th colspan="2">Liga</th>
+                            <th colspan="3">{{$leaugeName}}</th>
                             <th>M</th>
                             <th>W</th>
-                            <th>Sw:Sl</th>
-                            <th>Pts</th>
+                            <th>S</th>
+                            <th>P</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,9 +63,9 @@
                         </tbody>
                     </table>
                 </div>
+                @endforeach
             </div>
         </div>
-
 
         <div class="col-12 col-md-8 col-lg-6">
             <ul id="schedule" class="list-group text-white">

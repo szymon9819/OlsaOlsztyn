@@ -18,7 +18,7 @@ class ScoreboardService
             return [[0, 0], [1, 3]];
     }
 
-    public static function scoreboard($league, $season)
+    private function getScoreboard($league, $season)
     {
         $matches = $league->playedMatches($season);
         $scoreboard = array_fill_keys($league->teams->pluck('name')->toArray(), [
@@ -43,14 +43,20 @@ class ScoreboardService
             $scoreboard[$match->awayTeam->name]['sl'] += $match->matchResult->guest;
         }
 
-        function cmp($a, $b)
-        {
-            return ($a["pts"] <= $b["pts"]) ? -1 : 1;
-        }
-
-        dd(asort($scoreboard, "cmp"));
-
+        uasort($scoreboard, function ($a, $b) {
+            return -($a['pts'] <=> $b['pts']);
+        });
 
         return $scoreboard;
+    }
+
+    public function getScoreboards($leagues, $season)
+    {
+        $scoreboards = [];
+        foreach ($leagues as $league) {
+            self::getScoreboard($league, $season) != null ? $scoreboards[$league->name] = self::getScoreboard($league, $season) : '';
+        }
+
+        return $scoreboards;
     }
 }

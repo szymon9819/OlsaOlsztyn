@@ -28,12 +28,12 @@
     @include('topnavbar')
 
     <div class="container-fluid bg-color">
-        <div class="row">
+        <div class="row justify-content-md-center pt-3">
                 @yield('content')
         </div>
     </div>
 
-    <div class="pt-3 navbar justify-content-center bg-dark">
+    <div class="pt-3 justify-content-center bg-dark">
         @include('footer')
     </div>
 </div>
