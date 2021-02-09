@@ -54,9 +54,17 @@
     min-height: 33vh;
 }
 
-#scrolling-container {
+.ql-container.ql-snow {
+    height: auto;
+}
+.ql-editor {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+#editor {
     overflow: auto;
-    height: 33vh;
+    height: 50vh;
     background-color: #ffffff;
 }
 

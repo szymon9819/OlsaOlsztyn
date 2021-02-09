@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-white col-md-6">
+    <div class="container-fluid bg-white pt-5">
+        <div class="container col-md-6">
             <h1 class="text-center">{{$post->title}}</h1>
-            <div class="row ">
+            <div class="row">
                 {!! $post->content !!}
             </div>
+        </div>
     </div>
+
 @endsection

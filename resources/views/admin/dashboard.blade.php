@@ -81,22 +81,22 @@
             </div>
 
 
-            <div class="col-12 col-md-8 col-lg-6">
-            <ul id="schedule" class="list-group text-white">
-                @foreach ($leagues as $league)
-                    <li class="list-group-item border-0 bg-dark">
-                        <strong>{{$league->name}}</strong>
-                        <ul class="list-group  bg-dark">
-                            @foreach($league->seasons as $season)
-                                <li class="list-group-item border-0 bg-dark ">
-                                    <a href="" class="list-group-item list-group-item-action bg-dark text-white">
-                                        {{$season->season}}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
+{{--            <div class="col-12 col-md-8 col-lg-6">--}}
+{{--            <ul id="schedule" class="list-group text-white">--}}
+{{--                @foreach ($leagues as $league)--}}
+{{--                    <li class="list-group-item border-0 bg-dark">--}}
+{{--                        <strong>{{$league->name}}</strong>--}}
+{{--                        <ul class="list-group  bg-dark">--}}
+{{--                            @foreach($league->seasons as $season)--}}
+{{--                                <li class="list-group-item border-0 bg-dark ">--}}
+{{--                                    <a href="" class="list-group-item list-group-item-action bg-dark text-white">--}}
+{{--                                        {{$season->season}}--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
             </ul>
         </div>
 

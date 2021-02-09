@@ -18,29 +18,22 @@
             <tr>
                 <th>Tytuł</th>
                 <th>Miniaturka</th>
-                <th>Treść</th>
                 <th>Kategoria</th>
                 <th>Publiczny</th>
                 <th>Działanie</th>
             </tr>
             @foreach ($posts as $post)
                 <tr>
-                    <td>{!!Str::limit($post->title, 30, ' (...) ')!!}</td>
+                    <td>{!!Str::limit($post->title, 25, ' (...) ')!!}</td>
                     <td>
                         @if(!empty($post->thumbnail))
                             <img width="75" src="{{asset($post->thumbnail)}}" alt="miniaturka">
                         @endif
                     </td>
 
-                    <td>{!! Str::limit($post->content, 15, ' (...) ') !!}</td>
-
                     <td>{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
 
-                    @if ($post->status)
-                        <td>Tak</td>
-                    @else
-                        <td>Nie</td>
-                    @endif
+                    <td>{{$post->status? 'Tak': 'Nie'}}</td>
 
                     <td>
                         <a href="{{ route('admin.posts.edit',$post->id) }}">

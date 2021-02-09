@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <div class="col-lg-8 col-md-5">
+    <div class="col-xl-8 col-lg-7 col-md-5">
         <ul class="list-group col-12">
             @foreach($posts as $post)
-                <li class="list-group-item rounded-0 list-article ">
+                <li class="list-group-item rounded-0 list-article border-bottom">
                     <a href="{{route('article.show',$post->id)}}" style="text-decoration:none;">
                         <div class="row">
                             @if(!empty($post->thumbnail))
@@ -15,7 +15,7 @@
                             @endif
                             <div class="align-self-center">
                                 <h3>
-                                    {{$post->title}}
+                                    {{Str::limit($post->title, 60, ' (...) ')}}
                                 </h3>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
         </ul>
     </div>
 
-    <div class="col-lg-4 col-md-5">
+    <div class="col-xl-3 col-lg-4 col-md-5">
 
         <div id="myCarousel" class="carousel" data-interval="false">
             <div class="carousel-inner">
