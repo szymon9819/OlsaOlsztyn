@@ -27,7 +27,10 @@ Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function ()
     Route::resource('schedule', Admin\League\ScheduleController::class);
 });
 
-Route::get('/{id}', 'Article\ArticleController@show')->name('article.show');
+Route::get('/article/{id}', 'Article\ArticleController@show')->name('article.show');
+
+Route::get('/matches', 'MatchController@index')->name('matches.index');
+Route::get('/results', 'ResultController@index')->name('results.index');
 
 
 Route::get('/{any}', function ($any) {

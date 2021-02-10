@@ -17,7 +17,7 @@ class MatchController extends Controller
      */
     public function index()
     {
-        $matches = Match::paginate(20);
+        $matches = Match::paginate(10);
 
         return view('admin.match.index', compact('matches'));
     }

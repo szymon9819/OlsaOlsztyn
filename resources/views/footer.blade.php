@@ -1,14 +1,10 @@
-<footer>
-    <div class="container-fluid text-white d-flex justify-content-center">
-        <div class="col-sm-8">
+<footer class="bg-dark text-white">
+    <div class="container-fluid text-white d-flex justify-content-center ">
             <ul class="list-group-horizontal">
-                <li class="list-inline-item col-1"></li>
-                <li class="list-inline-item"><a href="#">O Portalu</a></li>
-                <li class="list-inline-item"><a href="#">Polityka prywatności</a></li>
-                <li class="list-inline-item"><a href="#">Kontakt</a></li>
-                <li class="list-inline-item col-1"></li>
+                <li class="list-inline-item"><a href="#" class="text-white">O Portalu</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Polityka prywatności</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Kontakt</a></li>
                 <li class="list-inline-item"><span>© 2020 Szymon Nowakowski</span></li>
             </ul>
-        </div>
     </div>
 </footer>

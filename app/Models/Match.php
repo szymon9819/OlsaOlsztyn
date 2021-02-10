@@ -23,16 +23,5 @@ class Match extends Model
         return $this->belongsTo(Team::class, 'guest_id');
     }
 
-    public static function playedMatches($league)
-    {
-//        $matches = collect();
-//        foreach ($league->teams as $team) {
-//            foreach ($team->awayMatches->merge($team->homeMatches) as $match)
-//                $matches->push($match);
-//        }
-//        $matches = $matches->unique()->pluck('id')->toArray();
-//
-//        return MatchResult::whereIn('match_id', $matches)->get();
 
-    }
 }

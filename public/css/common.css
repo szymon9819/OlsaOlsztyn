@@ -11,3 +11,23 @@
     color: #ffffff;
 }
 
+/*scoreboard table*/
+.scoreboard{
+    float: right;
+    width: 300px;
+    height: auto;
+    font-size: 13px;
+}
+
+.scoreboard tbody tr{
+    height:20px;
+    font-size: 13px;
+}
+
+.scoreboard-small-cell {
+    width: 35px;
+}
+
+.scoreboard-medium-cell{
+     width:45px;
+ }

@@ -17,24 +17,25 @@
         <div class="table-responsive">
             <table class="table text-white table-hover">
                 <thead>
-                <tr>
-                    <th>Adres</th>
-                    <th>Liga</th>
-                    <th></th>
-                    <th></th>
+                <tr class="d-flex">
+                    <th class="col-4">Adres</th>
+                    <th class="col">Liga</th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
                 </tr>
                 </thead>
+
                 <tbody>
                 @foreach ($stadiums as $stadium)
-                    <tr>
-                        <td class="col-md">{{$stadium->adress}}</td>
-                        <td class="col-md">{{$stadium->league['name'] ?? ''}}</td>
-                        <td class="col-md-1">
+                    <tr class="d-flex">
+                        <td class="col-4">{{$stadium->adress}}</td>
+                        <td class="col">{{$stadium->league['name'] ?? ''}}</td>
+                        <td class="col-1">
                             <a href="{{ route('admin.stadiums.edit',$stadium->id) }}" class="btn btn-success btn "
                                title="nowa hala">
                                 Edytuj
                             </a></td>
-                        <td class="col-md-1">
+                        <td class="col-1">
                             <form method="POST" action="{{ route('admin.stadiums.destroy', $stadium->id) }}"
                                   accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}
@@ -45,8 +46,6 @@
                             </form>
                     </tr>
                 @endforeach
-
-
                 </tbody>
             </table>
         </div>

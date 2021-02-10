@@ -14,25 +14,27 @@
         <div class="table-responsive">
             <table class="table text-white table-hover">
                 <thead>
-                <tr>
-                    <th>Mecz</th>
-                    <th>Wynik meczu</th>
-                    <th></th>
-                    <th></th>
+                <tr class="d-flex">
+                    <th class="col">Mecz</th>
+                    <th class="col">Data</th>
+                    <th class="col-2">Wynik meczu</th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($matches as $match)
-                    <tr>
-                        <td class="col-md">{{$match->homeTeam->name}} vs {{$match->awayTeam->name}}</td>
-                        <td class="col-md">{{ isset($match->matchResult) ? $match->matchResult->home.' : '.$match->matchResult->guest : ''}} </td>
+                    <tr class="d-flex">
+                        <td class="col">{{$match->homeTeam->name}} vs {{$match->awayTeam->name}}</td>
+                        <td class="col">{{$match->match_day}}</td>
+                        <td class="col-2">{{ isset($match->matchResult) ? $match->matchResult->home.' : '.$match->matchResult->guest : ''}} </td>
 
-                        <td class="col-md-1">
+                        <td class="col-1">
                             <a href="{{ route('admin.matches.edit',$match->id) }}" class="btn btn-success btn"
                                title="edytuj mecz">
                                 Edytuj
                             </a></td>
-                        <td class="col-md-1">
+                        <td class="col-1">
                             <form method="POST" action="{{ route('admin.matches.destroy', $match->id) }}"
                                   accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}

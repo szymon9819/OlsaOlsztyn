@@ -27,13 +27,13 @@
 
     @include('topnavbar')
 
-    <div class="container-fluid bg-color">
-        <div class="row justify-content-md-center pt-3">
+    <div class="container-fluid">
+        <div class="row justify-content-md-center m-4">
                 @yield('content')
         </div>
     </div>
 
-    <div class="pt-3 justify-content-center bg-dark">
+    <div class="bg-dark">
         @include('footer')
     </div>
 </div>

@@ -1,40 +1,40 @@
 /*article*/
 .list-article {
     height: 70px;
-    background: #202326;
 }
 
 h3{
-    color:#fff
+    color: #000000;
+    font-size: 15px;
 }
 
 .bg-color {
     background-color: #333;
 }
 
-th a span {
-    color:#fff;
+
+.form-signin {
+    width:100%;
+    max-width:330px;
+    padding:15px;
+    margin:0 auto;
+    display: block;
 }
 
-/*scoreboard table*/
-
-.scoreboard{
-    float: right;
-    width: 300px;
-    height: auto;
-    font-size: 13px;
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
 }
 
-.scoreboard tbody tr{
-    height:20px;
-    font-size: 10px;
+.match-table{
+    width: 100%;
+    max-width: 300px!important;
 }
 
-.scoreboard-small-cell {
-    width: 35px;
-
-}
-
-.scoreboard-medium-cell{
-    width:45px;
+.result-table{
+    width: 100%;
+    max-width: 500px;
 }
