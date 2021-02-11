@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
-Route::post('/', 'WelcomeController@index')->name('search');
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@index')->name('search');
 
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -35,6 +35,6 @@ Route::get('/results', 'ResultController@index')->name('results.index');
 
 
 Route::get('/{any}', function ($any) {
-    return view('welcome');
+    return redirect()->route('home');
 })->where('any', '.*');
 

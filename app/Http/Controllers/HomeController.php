@@ -9,7 +9,7 @@ use App\Services\ScoreboardService;
 use App\Services\SearchPostService;
 use Illuminate\Http\Request;
 
-class WelcomeController extends Controller
+class HomeController extends Controller
 {
     /**
      * Show the application dashboard.

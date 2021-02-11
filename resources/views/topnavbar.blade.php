@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark flex-md-nowrap bg-dark">
-    <a class="navbar-brand col-sm-2 mr-0" href="{{ route('welcome') }}">
+    <a class="navbar-brand col-sm-2 mr-0" href="{{ route('home') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
 

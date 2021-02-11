@@ -23,17 +23,17 @@
 
 </head>
 <body>
-<div id="app" style="min-height: 100vh;">
+<div id="app" class="flex-wrapper justify-content-between">
 
     @include('topnavbar')
 
-    <div class="container-fluid">
+    <div class="container-fluid align-content-top">
         <div class="row justify-content-md-center m-4">
                 @yield('content')
         </div>
     </div>
 
-    <div class="bg-dark">
+    <div class="bg-dark ">
         @include('footer')
     </div>
 </div>
