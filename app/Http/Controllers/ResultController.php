@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Match;
 use App\Services\MatchesService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class ResultController extends Controller
 {

@@ -14,6 +14,11 @@ class Post extends Model
         'thumbnail',
     ];
 
+    public function images()
+    {
+        return $this->hasMany(PostImage::class);
+    }
+
     public function category(){
         return $this->belongsTo(PostCategory::class,'post_category_id');
     }

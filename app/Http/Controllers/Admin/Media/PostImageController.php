@@ -21,4 +21,6 @@ class PostImageController extends Controller
 
         return response()->json(["imageUrl" => asset($imgName)]);
     }
+
+
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class=".flex-column result-table">
+    <div class="result-table">
         @foreach ($matches as $date=>$matches)
             <div class="table-responsive ">
                 <table class="table border">

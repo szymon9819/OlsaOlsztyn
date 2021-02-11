@@ -17,8 +17,11 @@ class LeagueSheduleService
         $date = Carbon::createFromFormat('m/d/Y', $date);
 
         //single queue is played one the same day
+        $matches=[];
+        $i=1;
         foreach ($schedule as $queue) {
             $tmpTime = Carbon::parse($time);
+            $matchesQue=[];
 
             foreach ($queue as $singleMatch) {
                 $match = new Match();
@@ -29,10 +32,16 @@ class LeagueSheduleService
                 $match->season_id = $season->id;
                 $match->save();
 
+                $matchesQue[]=$match;
+
                 $tmpTime->modify('+1 hour');
             }
+
+            $matches[$i]=$matchesQue;
+            $i++;
+
             $date->modify('+1 week');
         }
-        return $schedule;
+        return $matches;
     }
 }

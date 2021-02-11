@@ -16,7 +16,11 @@
 
         <div class="row">
             <div class="col-6 col-md-6">
-                <label for="schedule">Wprowadz wyniki ostatnio rozegranych meczy</label>
+                @if($matches->isEmpty())
+                    <label for="schedule"><strong>Brak wyników do wprowadzenia</strong></label>
+                @else
+                    <label for="schedule"><strong>Wprowadz wyniki ostatnio rozegranych meczy</strong></label>
+                @endif
                 <ul id="schedule" class="list-group text-white">
                     @foreach ($matches as $leagueMatch)
                         <li class="list-group-item border-0 bg-dark">
@@ -38,7 +42,7 @@
 
             <div class="col-lg-4 col-md-5">
 
-                <div id="myCarousel" class="carousel"data-interval="false">
+                <div id="myCarousel" class="carousel" data-interval="false">
                     <div class="carousel-inner">
                         @foreach($scoreboards as $leaugeName =>$scoreboard)
                             <div class="carousel-item {{$loop->index == 0 ? 'active':''}}">
@@ -61,17 +65,17 @@
                                                 <a href="#myCarousel" data-slide="next">
                                             <span style="color:#fff;">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                        fill="currentColor" class="bi bi-arrow-bar-right"
-                                                        viewBox="0 0 18 18"><path fill-rule="evenodd"
-                                                                                  d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+                                                     fill="currentColor" class="bi bi-arrow-bar-right"
+                                                     viewBox="0 0 18 18"><path fill-rule="evenodd"
+                                                                               d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
                                             </svg> </span>
                                                 </a>
                                             </div>
                                         </th>
-                                            <th>M</th>
-                                            <th>W</th>
-                                            <th>S</th>
-                                            <th>P</th>
+                                        <th>M</th>
+                                        <th>W</th>
+                                        <th>S</th>
+                                        <th>P</th>
                                         </tr>
                                         </thead>
                                         <tbody>

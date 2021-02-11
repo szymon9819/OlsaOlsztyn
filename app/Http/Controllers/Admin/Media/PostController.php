@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Media;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Post\StorePostRequest;
+use App\Models\PostImage;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 
@@ -53,18 +54,15 @@ class PostController extends Controller
         if (!empty($data['tags']))
             $post->tags()->attach($data['tags']);
 
-        return redirect('admin/posts')->with('message', 'Dodano Post');
-    }
+        if (!empty($data['images']))
+            foreach ($data['images'] as $img) {
+                PostImage::create([
+                    'name' => $img['name'],
+                    'post_id' => $post->id
+                ]);
+            }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect('admin/posts')->with('message', 'Dodano Post');
     }
 
     /**
@@ -98,6 +96,19 @@ class PostController extends Controller
             $post->thumbnail = '';
         }
 
+        if (!empty($data['images'])){
+            File::delete($post->images()->pluck('name')->toArray());
+            $post->images()->delete();
+            foreach ($data['images'] as $img) {
+                PostImage::create([
+                    'name' => $img['name'],
+                    'post_id' => $post->id
+                ]);
+            }
+        }
+
+
+
         $post->update($data);
 
         if (!empty($data['tags']))
@@ -116,8 +127,12 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $images = (new PostService())->getImages($post->content);
-        array_push($images,$post->thumbnail);
+        array_push($images, $post->thumbnail);
         File::delete($images);
+
+        File::delete($post->images()->pluck('name')->toArray());
+        $post->images()->delete();
+
         $post->delete();
 
         return redirect('admin/posts')->with('message', 'Usunięto Post');

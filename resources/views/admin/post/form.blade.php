@@ -19,6 +19,14 @@
     <textarea class="form-control" name="content" type="textarea" style="display: none;"
               id="content-textarea">{{ isset($post->content) ? $post->content : ''}}</textarea>
 </div>
+
+<div class="form-group">
+    <label for="images">Zdjęcia do galerii postu</label>
+    <input id="images" name="images[]" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple>
+</div>
+
+
+
 <div class="form-group ">
     <label for="category_id" class="control-label">Kategoria</label>
     <select name="post_category_id" id="category_id" class="form-control select2">

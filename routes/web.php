@@ -24,7 +24,7 @@ Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function ()
     Route::resource('matches', Admin\League\MatchController::class)->except(['show', 'create','store']);
     Route::resource('stadiums', Admin\League\StadiumController::class)->except('show');
     Route::resource('teams', Admin\League\TeamController::class);
-    Route::resource('schedule', Admin\League\ScheduleController::class);
+    Route::resource('schedule', Admin\League\ScheduleController::class)->only(['store','create']);
 });
 
 Route::get('/article/{id}', 'Article\ArticleController@show')->name('article.show');

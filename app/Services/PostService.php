@@ -21,6 +21,19 @@ class PostService
             })->save($thumbnailName);
             $data['thumbnail'] = $thumbnailName;
         }
+
+        if ($request->hasFile('images')) {
+            $imageDirectory= 'images/postGaleryImages/';
+            $data['images']= [];
+            foreach($request->file('images') as $image){
+                $originalImage = $image;
+                $image = Image::make($originalImage);
+                $imageName= ($imageDirectory . time() . $originalImage->getClientOriginalName());
+                $image->save($imageName);
+                array_push($data['images'],['name'=>$imageName]);
+            }
+        }
+
         return $data;
     }
 
