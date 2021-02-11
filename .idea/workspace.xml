@@ -3,26 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0b571ab-0823-4e51-b418-f469f848219b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/ScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/League.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/League.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PostImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/LeagueSheduleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/LeagueSheduleService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/PostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PostService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_141807_create_post_image_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_141807_create_post_image_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/show.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/schedule/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/schedule/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/article/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/article/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WelcomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WelcomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/match/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/match/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/result/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/result/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/topnavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/topnavbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -266,7 +248,7 @@
       <workItem from="1612792725351" duration="15055000" />
       <workItem from="1612866571306" duration="15381000" />
       <workItem from="1612973868664" duration="14287000" />
-      <workItem from="1613048168998" duration="8197000" />
+      <workItem from="1613048168998" duration="11160000" />
     </task>
     <servers />
   </component>
@@ -291,11 +273,11 @@
     </state>
     <state x="571" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1608671153321" />
     <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612446693524" />
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612986488887">
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613064702801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="219" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610750349903" />
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612986488887" />
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1613064702800" />
     <state x="571" y="309" key="ComposerInitDialogKey" timestamp="1610830524178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -322,10 +304,10 @@
       <screen x="-1920" y="9" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1536.824@-1920.9.1536.824" timestamp="1607364309809" />
-    <state x="790" y="335" width="387" height="369" key="NewPhpClassDialog" timestamp="1612986288447">
+    <state x="790" y="335" width="387" height="369" key="NewPhpClassDialog" timestamp="1613065507921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="790" y="335" width="387" height="369" key="NewPhpClassDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1612986288447" />
+    <state x="790" y="335" width="387" height="369" key="NewPhpClassDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1613065507921" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1610830528108">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
