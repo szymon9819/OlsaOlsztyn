@@ -6,7 +6,7 @@ namespace App\Services;
 
 class SearchPostService
 {
-    public function matchPosts($posts,$parameter){
+    public static function matchPosts($posts,$parameter){
         $matchedPosts=[];
         foreach($posts as $post)
             if(str_contains(strtolower($post->title), strtolower($parameter)))

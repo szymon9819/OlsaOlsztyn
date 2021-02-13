@@ -2,6 +2,10 @@
     min-height: 100vh;
 }
 
+#sidebar{
+    width: 130px;
+}
+
 /*sidebar*/
 .nav.flex-column li a {
     color: #ffffff;

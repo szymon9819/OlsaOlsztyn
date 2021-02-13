@@ -6,7 +6,7 @@ use Intervention\Image\Facades\Image;
 
 class PostService
 {
-    public function prepareData($request)
+    public static function prepareData($request)
     {
         $data = $request->all();
         $data['status'] = $request->boolean('status');
@@ -37,7 +37,7 @@ class PostService
         return $data;
     }
 
-    public function getImages($postContent)
+    public static function getImages($postContent)
     {
         preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $postContent, $images);
         $imagesPath = [];

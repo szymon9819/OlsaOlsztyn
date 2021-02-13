@@ -18,7 +18,7 @@ class ScoreboardService
             return [[0, 0], [1, 3]];
     }
 
-    private function getScoreboard($league, $season)
+    private static function getScoreboard($league, $season)
     {
         $matches = $league->playedMatches($season);
         $scoreboard = array_fill_keys($league->teams->pluck('name')->toArray(), [
@@ -50,7 +50,7 @@ class ScoreboardService
         return $scoreboard;
     }
 
-    public function getScoreboards($leagues, $season)
+    public static function getScoreboards($leagues, $season)
     {
         $scoreboards = [];
         foreach ($leagues as $league) {

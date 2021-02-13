@@ -15,7 +15,7 @@
         </a>
 
         <div class="row">
-            <div class="col-6 col-md-6">
+            <div class="col-12 col-md-6">
                 @if($matches->isEmpty())
                     <label for="schedule"><strong>Brak wyników do wprowadzenia</strong></label>
                 @else
@@ -40,7 +40,7 @@
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-5">
+            <div class="col-12 col-lg-4 col-md-5">
 
                 <div id="myCarousel" class="carousel" data-interval="false">
                     <div class="carousel-inner">

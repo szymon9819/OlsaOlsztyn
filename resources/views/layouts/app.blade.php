@@ -28,7 +28,7 @@
     @include('topnavbar')
 
     <div class="container-fluid align-content-top">
-        <div class="row justify-content-md-center m-4">
+        <div class="row justify-content-center p-4">
                 @yield('content')
         </div>
     </div>

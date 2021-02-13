@@ -4,12 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\League;
-use App\Models\Match;
 use App\Models\Season;
-use App\Models\Team;
 use App\Services\AdminDashboardService;
 use App\Services\ScoreboardService;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -21,11 +18,11 @@ class AdminController extends Controller
     public function index()
     {
         $leagues = League::all();
+
         $lastSeason = Season::orderBy('created_at', 'desc')->first();
 
-        $matches = (new AdminDashboardService())->getMatchWithoutResult($leagues, $lastSeason);
-
-        $scoreboards = (new ScoreboardService())->getScoreboards($leagues, $lastSeason);
+        $matches = AdminDashboardService::getMatchWithoutResult($leagues, $lastSeason);
+        $scoreboards = ScoreboardService::getScoreboards($leagues, $lastSeason);
 
         return view('admin.dashboard', compact('leagues', 'matches','scoreboards'));
     }

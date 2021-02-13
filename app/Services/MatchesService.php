@@ -1,12 +1,21 @@
 <?php
 
-
 namespace App\Services;
 
+use Illuminate\Support\Collection;
 
 class MatchesService
 {
-    public function getMatchesByDay($matches)
+    public static function getPlayedMatches($season, $leagues)
+    {
+        $matches = new Collection();
+        foreach ($leagues as $league)
+            $matches = $matches->merge($league->playedMatches($season));
+
+        return $matches;
+    }
+
+    public static function getMatchesByDay($matches)
     {
         $preparedMatches = [];
         foreach ($matches as $match) {

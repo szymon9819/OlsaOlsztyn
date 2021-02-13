@@ -16,3 +16,8 @@ function showSidebar() {
     $('#show-sidebar-btn').hide();
 };
 
+if ($(window).width() < 960) {
+    console.log("sdasdasda");
+    collapseSidebar();
+}
+

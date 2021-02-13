@@ -22,7 +22,7 @@
         <hr/>
         <div class="row d-flex justify-content-center small pb-3">
             <div class="col-md-10 col-12 d-flex justify-content-center">
-                <h5 class="mt-2 mb-0 text-white text-md-left">© 2021 <a href="https://github.com/szymon9819/OlsaOlsztyn">Szymon Nowakowski</a>. Wszelkie prawa zastrzeżone!</h5>
+                <h5 class="mt-2 mb-0 text-white text-md-left">© 2021 <a href="https://github.com/szymon9819">Szymon Nowakowski</a>. Wszelkie prawa zastrzeżone!</h5>
             </div>
         </div>
     </div>

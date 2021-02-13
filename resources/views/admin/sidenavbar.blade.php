@@ -1,4 +1,4 @@
-<nav id="sidebar" class="col-md-2 sidebar pt-3">
+<nav id="sidebar" class="pt-3">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item d-flex">

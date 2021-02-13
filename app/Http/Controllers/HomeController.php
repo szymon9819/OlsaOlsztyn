@@ -23,7 +23,7 @@ class HomeController extends Controller
         $posts = Post::latest()->where('status', '=', 1)->paginate($postsPerPage);
 
         if(!empty($parameter))
-            $posts= (new SearchPostService())->matchPosts($posts,$parameter);
+            $posts= SearchPostService::matchPosts($posts,$parameter);
 
         if(empty($posts))
             $parameter='';
@@ -31,7 +31,7 @@ class HomeController extends Controller
         $leagues = League::all();
         $lastSeason = Season::orderBy('created_at', 'desc')->first();
 
-        $scoreboards = (new ScoreboardService())->getScoreboards($leagues, $lastSeason);
+        $scoreboards = ScoreboardService::getScoreboards($leagues, $lastSeason);
 
         return view('home', compact('posts','scoreboards','parameter'));
     }

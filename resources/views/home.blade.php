@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="col-xl-8 col-lg-7 col-md-5">
+    <div class="col-xl-8 col-lg-6 col-md-12 mb-3">
         @if(!empty($parameter))
             <div>
                 <h2>Wyniki wyszukiwania dla frazy: {{$parameter}}</h2>
@@ -15,11 +15,11 @@
             </div>
         @endif
 
-        <ul class="list-group col-12">
+        <ul class="list-group">
             @foreach($posts as $post)
                 <li class="list-group-item rounded-0 list-article border-bottom">
                     <a href="{{route('article.show',$post->id)}}" style="text-decoration:none;">
-                        <div class="row">
+                        <div class="d-inline-flex">
                             @if(!empty($post->thumbnail))
                                 <div class="pr-3">
                                     <img height="50" src="{{asset($post->thumbnail)}}">
@@ -37,13 +37,11 @@
         </ul>
     </div>
 
-    <div class="col-xl-3 col-lg-4 col-md-5">
-
+    <div class="col-xl-4 col-lg-6 col-md-12 d-flex justify-content-center">
         <div id="myCarousel" class="carousel" data-interval="false">
-            <div class="carousel-inner">
+            <div class="carousel-inner scoreboard">
                 @foreach($scoreboards as $leaugeName =>$scoreboard)
                     <div class="carousel-item {{$loop->index == 0 ? 'active':''}}">
-                        <div class="scoreboard ">
                             <table class="table table-bordered">
                                 <thead class="thead-dark">
                                 <tr>
@@ -92,7 +90,6 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
                 @endforeach
             </div>
         </div>

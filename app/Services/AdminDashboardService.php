@@ -1,14 +1,11 @@
 <?php
-
-
 namespace App\Services;
-
 
 use Carbon\Carbon;
 
 class AdminDashboardService
 {
-    public function getMatchWithoutResult($leagues,$season)
+    public static function getMatchWithoutResult($leagues,$season)
     {
         $matches = collect([]);
         foreach ($leagues as $league) {

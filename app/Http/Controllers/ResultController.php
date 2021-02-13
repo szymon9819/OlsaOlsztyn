@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Match;
+use App\Models\League;
+use App\Models\Season;
 use App\Services\MatchesService;
-use Carbon\Carbon;
 
 class ResultController extends Controller
 {
     public function index()
     {
-        $matches = Match::all()->where('match_day', '<', Carbon::today()->format('Y-m-d'));
-        $matches = array_reverse((new MatchesService())->getMatchesByDay($matches));
+        $leagues=League::all();
+        $season=Season::latest()->first();
+        $matches = array_reverse(MatchesService::getMatchesByDay(MatchesService::getPlayedMatches($season,$leagues)));
 
         return view('result.index', compact('matches'));
     }

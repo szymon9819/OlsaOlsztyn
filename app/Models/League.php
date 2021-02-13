@@ -32,7 +32,6 @@ class League extends Model
             foreach ($season->matches()->where('home_id', $id)->get() as $match)
                 if (!empty($match->matchResult))
                     $matches->push($match);
-
         return $matches;
     }
 }

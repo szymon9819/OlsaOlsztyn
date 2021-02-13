@@ -9,7 +9,7 @@ use ScheduleBuilder;
 class LeagueSheduleService
 {
 
-    public function generateSchedule($teams, $season, $date, $time)
+    public static function generateSchedule($teams, $season, $date, $time)
     {
         $rounds = (($count = count($teams)) % 2 === 0 ? $count - 1 : $count) * 2;
         $scheduleBuilder = new ScheduleBuilder($teams, $rounds);

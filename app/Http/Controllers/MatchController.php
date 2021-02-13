@@ -12,7 +12,7 @@ class MatchController extends Controller
     public function index(){
 
         $matches= Match::all()->where('match_day', '>',Carbon::today()->format('Y-m-d'));
-        $matches= (new MatchesService())->getMatchesByDay($matches);
+        $matches= MatchesService::getMatchesByDay($matches);
 
         return view('match.index', compact('matches'));
     }

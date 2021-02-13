@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Models\PostImage;
 use App\Services\PostService;
-use Illuminate\Http\Request;
 
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -49,7 +48,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data = (new PostService())->prepareData($request);
+        $data = PostService::prepareData($request);
         $post = Post::create($data);
         if (!empty($data['tags']))
             $post->tags()->attach($data['tags']);
@@ -89,7 +88,7 @@ class PostController extends Controller
      */
     public function update(StorePostRequest $request, $id)
     {
-        $data = (new PostService())->prepareData($request);
+        $data = PostService::prepareData($request);
         $post = Post::findOrFail($id);
         if (!empty($post->thumbnail)) {
             File::delete($post->thumbnail);
@@ -126,7 +125,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-        $images = (new PostService())->getImages($post->content);
+        $images = PostService::getImages($post->content);
         array_push($images, $post->thumbnail);
         File::delete($images);
 
