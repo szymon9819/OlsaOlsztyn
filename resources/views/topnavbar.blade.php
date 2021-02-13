@@ -3,11 +3,40 @@
         {{ config('app.name', 'Laravel') }}
     </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <div class="dropdown show">
+                    <a class="nav-link text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Kategorie
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @foreach ($navbarCategories as $navbarCategory)
+                            <a class="dropdown-item"
+                               href="{{ route('category.index',$navbarCategory->id) }},">{{$navbarCategory->name}}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown show">
+                    <a class="nav-link text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tagi
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @foreach ($navbarTags as $navbarTag)
+                            <a class="dropdown-item"
+                               href="{{ route('tag.index',$navbarTag->id) }}">{{$navbarTag->name}}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ route('matches.index') }}">Mecze</a>
             </li>

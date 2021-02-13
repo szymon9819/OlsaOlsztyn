@@ -16,7 +16,7 @@ class PostService
             $thumbnail = Image::make($originalImage);
             $thumbnailDirectory = 'images/postThumbnails/';
             $thumbnailName = ($thumbnailDirectory . time() . $originalImage->getClientOriginalName());
-            $thumbnail->resize(50, null, function ($constraint) {
+            $thumbnail->resize(250, null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($thumbnailName);
             $data['thumbnail'] = $thumbnailName;

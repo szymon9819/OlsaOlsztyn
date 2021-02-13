@@ -30,6 +30,9 @@ Route::middleware(['auth'])->prefix('/admin')->name('admin.')->group(function ()
 
 Route::get('/article/{id}', 'Article\ArticleController@show')->name('article.show');
 
+
+Route::get('/category/{id}', 'CategoryController@index')->name('category.index');
+Route::get('/tag/{id}', 'TagController@index')->name('tag.index');
 Route::get('/matches', 'MatchController@index')->name('matches.index');
 Route::get('/results', 'ResultController@index')->name('results.index');
 
