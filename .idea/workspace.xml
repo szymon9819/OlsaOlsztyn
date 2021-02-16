@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0b571ab-0823-4e51-b418-f469f848219b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PostTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostTag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/PostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PostService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/topnavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/topnavbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/SearchPostService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sidenavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sidenavbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,19 +174,19 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\OlsaOlsztyn\resources\views" />
-      <recent name="F:\OlsaOlsztyn\resources\views\result" />
-      <recent name="F:\OlsaOlsztyn\resources\js" />
-      <recent name="F:\OlsaOlsztyn\resources\views\admin" />
-      <recent name="F:\OlsaOlsztyn\resources\views\admin\match" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\OlsaOlsztyn\readmeImages" />
       <recent name="F:\OlsaOlsztyn\app\Models" />
       <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\Media" />
       <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\League" />
       <recent name="F:\OlsaOlsztyn\public\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\OlsaOlsztyn\resources\views" />
+      <recent name="F:\OlsaOlsztyn\resources\views\result" />
+      <recent name="F:\OlsaOlsztyn\resources\js" />
+      <recent name="F:\OlsaOlsztyn\resources\views\admin" />
+      <recent name="F:\OlsaOlsztyn\resources\views\admin\match" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +257,9 @@
       <workItem from="1613070896852" duration="433000" />
       <workItem from="1613079274948" duration="49000" />
       <workItem from="1613145653016" duration="1725000" />
-      <workItem from="1613226482333" duration="11619000" />
+      <workItem from="1613226482333" duration="12783000" />
+      <workItem from="1613328661727" duration="399000" />
+      <workItem from="1613495246918" duration="4402000" />
     </task>
     <servers />
   </component>
@@ -321,13 +325,13 @@
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610830528108" />
     <state x="-1643" y="65" key="SettingsEditor/0.0.1920.1040/-1920.9.1536.824@-1920.9.1536.824" timestamp="1607365228112" />
     <state x="346" y="71" key="SettingsEditor/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1607517949493" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1613226482876">
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1613495249325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1611947343961" />
     <state x="-1455" y="247" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@-1920.9.1536.824" timestamp="1607364097262" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1613226482876" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613145683674" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1536.824@0.0.1920.1040" timestamp="1613495249325" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613328698723" />
     <state x="701" y="136" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612794318693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -11,7 +11,7 @@
                     </div>
                 </a>
             </li>
-            <li class="nav-item dropdown ">
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
                     Posty
                 </a>

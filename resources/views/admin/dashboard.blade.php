@@ -40,7 +40,7 @@
                 </ul>
             </div>
 
-            <div class="col-12 col-lg-4 col-md-5">
+            <div class="col-12 col-lg-5 col-md-6">
 
                 <div id="myCarousel" class="carousel" data-interval="false">
                     <div class="carousel-inner">

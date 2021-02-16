@@ -28,14 +28,13 @@
 
     @include('topnavbar')
 
-    <div class="container-fluid pt-3">
+    <div id="content" class="container-fluid">
         <div class="row">
-            @auth
-                @include('admin.sidenavbar')
-            @endauth
 
-            <div class="col justify-content-center">
-                    <div class="card border-0 bg-dark text-white">
+            @include('admin.sidenavbar')
+
+            <div class="col p-0 justify-content-center">
+                    <div class="card border-0 bg-dark rounded-0 text-white">
                         <main role="main" class="pt-3 px-4">
                             <button id="show-sidebar-btn" class="btn btn-lg mb-3" onclick="showSidebar()"><h2 class="text-white">☰</h2></button>
                             @yield('content')
