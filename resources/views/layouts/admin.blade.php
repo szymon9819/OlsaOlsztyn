@@ -23,23 +23,25 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 
 </head>
-<body class="bg-color">
-<div id="app" class="bg-color height-full">
+<body class="bg-color height-full">
+<div id="app">
 
     @include('topnavbar')
 
-    <div id="content" class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-
-            @include('admin.sidenavbar')
+            @auth
+                @include('admin.sidenavbar')
+            @endauth
 
             <div class="col p-0 justify-content-center">
-                    <div class="card border-0 bg-dark rounded-0 text-white">
-                        <main role="main" class="pt-3 px-4">
-                            <button id="show-sidebar-btn" class="btn btn-lg mb-3" onclick="showSidebar()"><h2 class="text-white">☰</h2></button>
-                            @yield('content')
-                        </main>
-                    </div>
+                <div class="card bg-dark border-0 rounded-0 text-white" style="height: 92vh;">
+                    <main role="main" class="bg-dark pt-3 px-4">
+                        <button id="show-sidebar-btn" class="btn btn-lg mb-3" onclick="showSidebar()"><h2
+                                class="text-white">☰</h2></button>
+                        @yield('content')
+                    </main>
+                </div>
             </div>
         </div>
     </div>

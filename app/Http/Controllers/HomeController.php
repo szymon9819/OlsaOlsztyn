@@ -21,9 +21,10 @@ class HomeController extends Controller
         $parameter = $request->parameter;
 
         if (!empty($parameter))
-            $posts = Post::latest()->where('title', 'like', '%' . $parameter . '%')->paginate($postsPerPage);
+            $posts = Post::latest()->where('title', 'like', '%'.$parameter.'%')->paginate($postsPerPage);
         else
             $posts = Post::latest()->where('status', '=', 1)->paginate($postsPerPage);
+
 
         if (empty($posts))
             $parameter = '';

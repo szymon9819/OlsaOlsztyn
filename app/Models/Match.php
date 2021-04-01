@@ -23,5 +23,7 @@ class Match extends Model
         return $this->belongsTo(Team::class, 'guest_id');
     }
 
-
+    public function season(){
+        return $this->belongsTo(Season::class);
+    }
 }

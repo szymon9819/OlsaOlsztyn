@@ -9,10 +9,10 @@ class AdminDashboardService
     {
         $matches = collect([]);
         foreach ($leagues as $league) {
-            if (!empty($league->seasons()->findOrFail($season->id))) {
+            if (!empty($league->seasons()->find($season->id))) {
                 $tmp = [];
                 //get all macthes for specify league if season is newest, and match day is less than actual day
-                foreach ($league->seasons()->findOrFail($season->id)->matches()
+                foreach ($league->seasons()->find($season->id)->matches()
                              ->whereIn('home_id', $league->teams()->pluck('id')->toArray())
                              ->whereDate('match_day', '<', Carbon::now())->get() as $match) {
                     if (empty($match->matchResult)) {

@@ -24,6 +24,8 @@ class AdminController extends Controller
         $matches = AdminDashboardService::getMatchWithoutResult($leagues, $lastSeason);
         $scoreboards = ScoreboardService::getScoreboards($leagues, $lastSeason);
 
+
+
         return view('admin.dashboard', compact('leagues', 'matches','scoreboards'));
     }
 

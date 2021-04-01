@@ -15,8 +15,8 @@ class Team extends Model
     public function awayMatches(){
         return $this->hasMany(Match::class, 'guest_id');
     }
+
     public function homeMatches(){
         return $this->hasMany(Match::class, 'home_id');
     }
-
 }

@@ -8,11 +8,10 @@ h3{
     font-size: 15px;
 }
 
-.bg-color {
-    background-color: #333;
+
+.height-full{
+    height: 100%
 }
-
-
 .form-signin {
     width:100%;
     max-width:330px;

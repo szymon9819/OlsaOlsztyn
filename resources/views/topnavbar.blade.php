@@ -1,13 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-dark flex-md-nowrap bg-dark">
-    <a class="navbar-brand col-sm-2 mr-0" href="{{ route('home') }}">
-        {{ config('app.name', 'Laravel') }}
-    </a>
+
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div>
+            <a class="navbar-brand col-sm-2 mr-0" href="{{ route('home') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+        </div>
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <div class="dropdown show">

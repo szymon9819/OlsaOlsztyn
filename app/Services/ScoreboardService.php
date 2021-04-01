@@ -20,7 +20,10 @@ class ScoreboardService
 
     private static function getScoreboard($league, $season)
     {
-        $matches = $league->playedMatches($season);
+
+//        $matches = $league->playedMatches($season);
+        $matches = $league->matchesSeason($season)->has('matchResult')->get();
+
         $scoreboard = array_fill_keys($league->teams->pluck('name')->toArray(), [
             'wins' => 0,
             'matches' => 0,
@@ -39,8 +42,8 @@ class ScoreboardService
             $scoreboard[$match->awayTeam->name]['wins'] += self::getPoints($match->matchResult)[1][0];
             $scoreboard[$match->awayTeam->name]['matches'] += 1;
             $scoreboard[$match->awayTeam->name]['pts'] += self::getPoints($match->matchResult)[1][1];
-            $scoreboard[$match->awayTeam->name]['sw'] += $match->matchResult->home;
-            $scoreboard[$match->awayTeam->name]['sl'] += $match->matchResult->guest;
+            $scoreboard[$match->awayTeam->name]['sw'] += $match->matchResult->guest;
+            $scoreboard[$match->awayTeam->name]['sl'] += $match->matchResult->home;
         }
 
         uasort($scoreboard, function ($a, $b) {

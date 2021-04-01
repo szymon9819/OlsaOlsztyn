@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="bg-dark ">
+    <div class="bg-dark">
         @include('footer')
     </div>
 </div>

@@ -48,14 +48,15 @@ class MatchController extends Controller
         $match->update(['match_day' => Carbon::parse($request->match_day)->format('Y-m-d'),
             'time' => $request->time]);
 
-        if (!empty($matchResult) && !empty($request->home) && !empty($request->guest))
+        if (!empty($matchResult) && $request->has('home') && $request->has('guest'))
             $matchResult->update($request->all());
-        else if (!empty($request->home) && !empty($request->guest)) {
+        else if ($request->has('home') && $request->has('guest')) {
             $matchResult = MatchResult::create([
                 'home' => $request->home,
                 'guest' => $request->guest,
                 'match_id' => $match->id
             ]);
+
         }
         if (!empty($matchResult) && empty($request->home) && empty($request->guest)) {
             $matchResult->delete();

@@ -177,6 +177,8 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
 
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
