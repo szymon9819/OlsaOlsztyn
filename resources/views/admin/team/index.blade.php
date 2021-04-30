@@ -30,7 +30,7 @@
                     <tr>
                         <td class="col-md" >{{$team->name}}</td>
                         <td class="col-md" >{{$team->shorthand}}</td>
-                        <td class="col-md" >{{$team->league['name']}}</td>
+                        <td class="col-md" >{{!empty($team->league['name'])?$team->league['name']:''}}</td>
 
                         <td class="col-md-1">
                             <a href="{{ route('admin.teams.edit',$team->id) }}" class="btn btn-success btn "

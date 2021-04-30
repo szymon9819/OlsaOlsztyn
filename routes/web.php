@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('search');
 
+Route::get('/test',function (){
+    $s= \App\Models\Season::find(2);
+    $r= \App\Models\MatchResult::allResultsForSeason($s);
+    dd($r);
+});
+
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
