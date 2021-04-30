@@ -16,25 +16,27 @@
 
         <div class="row">
             <div class="col-12 col-md-6">
-                @if($matches->isEmpty())
+                @if(empty($matches))
                     <label for="schedule"><strong>Brak wyników do wprowadzenia</strong></label>
                 @else
                     <label for="schedule"><strong>Wprowadz wyniki ostatnio rozegranych meczy</strong></label>
                 @endif
                 <ul id="schedule" class="list-group text-white">
-                    @foreach ($matches as $leagueMatch)
+                    @foreach ($matches as $league=>$leagueMatches)
                         <li class="list-group-item border-0 bg-dark" style="width: 300px!important;">
-                            <strong>{{$leagueMatch['league']->name}}</strong>
-                            <ul class="list-group bg-dark">
-                                @foreach($leagueMatch['matches'] as $match)
-                                    <li class="list-group-item border-0 bg-dark">
-                                        <a href="{{ route('admin.matches.edit',$match['match_id']) }}"
-                                           class="list-group-item list-group-item-action text-white matches-list-dark">
-                                            {{$match['home']->name}} vs {{ $match['guest']->name }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                            @if(!empty($leagueMatches))
+                                <strong>{{$league}}</strong>
+                                <ul class="list-group bg-dark">
+                                    @foreach($leagueMatches as $match)
+                                        <li class="list-group-item border-0 bg-dark">
+                                            <a href="{{ route('admin.matches.edit',$match->id) }}"
+                                               class="list-group-item list-group-item-action text-white matches-list-dark">
+                                                {{$match->home_name}} vs {{ $match->guest_name}}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </li>
                     @endforeach
                 </ul>

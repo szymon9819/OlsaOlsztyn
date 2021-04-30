@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Services;
 
+use App\Models\Match;
+use App\Models\MatchResult;
 use Carbon\Carbon;
 
 class AdminDashboardService
 {
-    public static function getMatchWithoutResult($leagues,$season)
+    public static function getMatchWithoutResult($leagues, $season)
     {
         $matches = collect([]);
         foreach ($leagues as $league) {
@@ -18,11 +21,11 @@ class AdminDashboardService
                     if (empty($match->matchResult)) {
                         array_push($tmp, ['home' => $match->homeTeam,
                             'guest' => $match->awayTeam,
-                            'match_id'=>$match->id
+                            'match_id' => $match->id
                         ]);
                     }
                 }
-                if(!empty($tmp)) {
+                if (!empty($tmp)) {
                     $matches->push([
                         'league' => $league,
                         'matches' => $tmp
@@ -30,6 +33,25 @@ class AdminDashboardService
                 }
             }
         }
+        return $matches;
+    }
+
+    public static function playedMatchesForAllLeagues($leagues, $season)
+    {
+        $matches = [];
+        foreach ($leagues as $league) {
+            $matches[$league->name] = MatchResult::allResultsForSeason($league, $season)->toArray();
+        }
+        return $matches;
+    }
+
+    public static function matchesForEnterScoreForAllLeagues($leagues, $season)
+    {
+        $matches = [];
+        foreach ($leagues as $league) {
+            $matches[$league->name] = Match::playedMatchesWithoutResult($season, $league)->toArray();
+        }
+
         return $matches;
     }
 }

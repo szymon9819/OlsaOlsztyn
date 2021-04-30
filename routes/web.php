@@ -7,8 +7,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index')->name('search');
 
 Route::get('/test',function (){
-    $s= \App\Models\Season::find(2);
-    $r= \App\Models\MatchResult::allResultsForSeason($s);
+    $s= \App\Models\Season::find(3);
+    $l= \App\Models\League::find(2);
+    $r= \App\Models\MatchResult::allResultsForSeason($l,$s);
+    $r=\App\Services\AdminDashboardService::playedMatchesForAllLeagues(\App\Models\League::all(),$s);
     dd($r);
 });
 
