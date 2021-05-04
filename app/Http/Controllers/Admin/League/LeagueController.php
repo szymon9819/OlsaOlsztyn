@@ -19,7 +19,7 @@ class LeagueController extends Controller
     public function index()
     {
         $leagusPerPage = 15;
-        $leagues = League::paginate($leagusPerPage);
+        $leagues = League::with('stadiums')->paginate($leagusPerPage);
         return view('admin.league.index', compact('leagues'));
     }
 

@@ -17,7 +17,7 @@ class TeamController extends Controller
     public function index()
     {
         $teamsPerPage = 15;
-        $teams = Team::paginate($teamsPerPage);
+        $teams = Team::with('league')->paginate($teamsPerPage);
         return view('admin.team.index', compact('teams'));
     }
 

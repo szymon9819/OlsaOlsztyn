@@ -27,7 +27,7 @@ class MatchResult extends Model
                 $join->on('l.id','=',DB::raw($league->id));
             })
             ->join('seasons AS s', function ($join) use ($season) {
-                $join->on('m.season_id','=','s.id');
+//                $join->on('m.season_id','=','s.id');
                 $join->on('s.id','=', DB::raw($season->id));
             })->select(
                 'mr.home', 'mr.guest', 't1.name as home_team',

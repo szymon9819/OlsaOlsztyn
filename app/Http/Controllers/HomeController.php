@@ -29,7 +29,7 @@ class HomeController extends Controller
         if (empty($posts))
             $parameter = '';
 
-        $leagues = League::all();
+        $leagues = League::with('teams')->get();
         $lastSeason = Season::orderBy('created_at', 'desc')->first();
 
         $scoreboards = ScoreboardService::getScoreboards($leagues, $lastSeason);

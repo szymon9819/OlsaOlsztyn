@@ -28,10 +28,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //navbar elements
-        View::composer('*', function ($view) {
-            $view->with('navbarCategories', PostCategory::all())
-                ->with('navbarTags', PostTag::all()
-            );
-        });
+        $navbarCategories =PostCategory::all();
+        $navbarTag =PostTag::all();
+        View::share(['navbarCategories'=>$navbarCategories,'navbarTags'=>$navbarTag]);
     }
 }

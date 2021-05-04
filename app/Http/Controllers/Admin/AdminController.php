@@ -18,7 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $leagues = League::all();
+        $leagues = League::with('teams')->get();
+//        $leagues = League::all();
         $lastSeason = Season::orderBy('created_at', 'desc')->first();
 
         $matches=AdminDashboardService::matchesForEnterScoreForAllLeagues($leagues,$lastSeason);

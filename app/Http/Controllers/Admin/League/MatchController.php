@@ -17,7 +17,8 @@ class MatchController extends Controller
      */
     public function index()
     {
-        $matches = Match::orderBy('match_day', 'desc')->paginate(10);
+        $matches = Match::with('homeTeam','awayTeam','matchResult')
+            ->orderBy('match_day', 'desc')->paginate(10);
 
         return view('admin.match.index', compact('matches'));
     }

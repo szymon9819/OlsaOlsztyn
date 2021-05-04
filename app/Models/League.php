@@ -33,8 +33,8 @@ class League extends Model
     }
 
 
-    public function playedMatches($season)
-    {
+//    public function playedMatches($season)
+//    {
 //        dd( $this);
 //        dd(League::find(1)->teams->flatMap->awayMatches->flatMap->matchResult);
 //        dd(League::find(1));
@@ -49,15 +49,15 @@ class League extends Model
 //                    $matches->push($match);
 //
 //        return $matches;
-
-
-        return Match::whereHas('season', function ($query) use ($season) {
-            $query->where('id', $season->id);
-        })->has('matchResult')->whereHas(
-            'awayTeam.league', function ($leagueQuery) {
-            //team in specify league
-            $leagueQuery->where('id', $this->id);
-        });
-
-    }
+//
+//
+//        return Match::whereHas('season', function ($query) use ($season) {
+//            $query->where('id', $season->id);
+//        })->has('matchResult')->whereHas(
+//            'awayTeam.league', function ($leagueQuery) {
+//            //team in specify league
+//            $leagueQuery->where('id', $this->id);
+//        });
+//
+//    }
 }

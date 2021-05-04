@@ -11,7 +11,10 @@ class ResultController extends Controller
 {
     public function index()
     {
-        $matches = array_reverse(MatchesService::getMatchesByDay(Match::has('matchResult')->get()));
+        $matches = array_reverse(MatchesService::getMatchesByDay(Match::has('matchResult')
+            ->with('homeTeam','awayTeam','matchResult')
+            ->get()
+        ));
 //        $matches = array_reverse(MatchesService::getMatchesByDay($leagues->flatMap->playedMatches($season)));
 
         return view('result.index', compact('matches'));
