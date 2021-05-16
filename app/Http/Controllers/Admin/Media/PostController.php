@@ -23,7 +23,7 @@ class PostController extends Controller
     public function index()
     {
         $postsPerPage = 9;
-        $posts = Post::latest()->paginate($postsPerPage);
+        $posts = Post::with('category')->latest()->paginate($postsPerPage);
 
         return view('admin.post.index', compact('posts'));
     }

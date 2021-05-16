@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d0b571ab-0823-4e51-b418-f469f848219b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/LeagueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/LeagueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/MatchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/MatchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/TeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/TeamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MatchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MatchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/League.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/League.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MatchResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MatchResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AdminDashboardService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AdminDashboardService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ScoreboardService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ScoreboardService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/SeasonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/League/SeasonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Media/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,19 +220,19 @@
     <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\OlsaOlsztyn\readmeImages" />
-      <recent name="F:\OlsaOlsztyn\app\Models" />
-      <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\Media" />
-      <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\League" />
-      <recent name="F:\OlsaOlsztyn\public\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\OlsaOlsztyn\resources\views" />
       <recent name="F:\OlsaOlsztyn\resources\views\result" />
       <recent name="F:\OlsaOlsztyn\resources\js" />
       <recent name="F:\OlsaOlsztyn\resources\views\admin" />
       <recent name="F:\OlsaOlsztyn\resources\views\admin\match" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\OlsaOlsztyn\readmeImages" />
+      <recent name="F:\OlsaOlsztyn\app\Models" />
+      <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\Media" />
+      <recent name="F:\OlsaOlsztyn\app\Http\Controllers\Admin\League" />
+      <recent name="F:\OlsaOlsztyn\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -339,7 +330,7 @@
       <workItem from="1619733914949" duration="788000" />
       <workItem from="1619775461898" duration="5112000" />
       <workItem from="1619799276862" duration="12247000" />
-      <workItem from="1620150972123" duration="2690000" />
+      <workItem from="1620150972123" duration="3612000" />
     </task>
     <servers />
   </component>

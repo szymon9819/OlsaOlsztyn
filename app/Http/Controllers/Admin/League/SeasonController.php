@@ -17,7 +17,7 @@ class SeasonController extends Controller
     public function index()
     {
         $seasonsPerPage = 15;
-        $seasons = Season::paginate($seasonsPerPage);
+        $seasons = Season::with('leagues')->paginate($seasonsPerPage);
 
         return view('admin.season.index', compact('seasons'));
     }

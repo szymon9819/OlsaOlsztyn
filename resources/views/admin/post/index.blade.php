@@ -31,7 +31,7 @@
                         @endif
                     </td>
 
-                    <td>{{!empty($post->category()->get()) ? $post->category()->get()[0]->name:'' }}</td>
+                    <td>{{!empty($post->category) ? $post->category->name:'' }}</td>
 
                     <td>{{$post->status? 'Tak': 'Nie'}}</td>
 
